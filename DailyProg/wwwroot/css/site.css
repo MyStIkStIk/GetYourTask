@@ -16,7 +16,7 @@
         position: relative;
     }/*блок таблиц*/
         .dailyBackground .block-tables .table {
-            background: rgba(14,219,175, 0.5);
+            background: rgba(14,219,175, 0.9);
             margin: 5vh 5vw 0 0;
             height: 65vh;
             border-radius: 30px;
@@ -29,10 +29,12 @@
                 max-height: 50vh;
             }/*блоки задач в таблицах*/
 
-        .dailyBackground .block-tables .table .table-name {
-            text-align: center;
-            padding: 10px 0 30px 0;
-        }/*названия таблиц*/
+            .dailyBackground .block-tables .table .table-name {
+                text-align: center;
+                padding: 10px 0 30px 0;
+                font-size: 22px;
+                font-weight: 600;
+            }/*названия таблиц*/
                 .dailyBackground .block-tables .table .task div {
                     border-bottom: 1px solid rgba(0,0,0, 0.3);
                 }
@@ -40,7 +42,7 @@
             .dailyBackground .block-tables .table .task .current-task {
                 display: grid;
                 grid-template-columns: 50px calc(100% - 50px);
-                font-size: 18px;
+                font-size: 20px;
                 font-weight: 600;
             }/*блок текущей задачи*/
                 .dailyBackground .block-tables .table .task .current-task:hover {
