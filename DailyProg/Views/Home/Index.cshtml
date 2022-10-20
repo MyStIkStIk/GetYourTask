@@ -1,0 +1,89 @@
+﻿@model GetTodayTask
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="dailyBackground">
+    <div class="row top-background">
+        <div class="col-md-4 title">
+            <p class="title-text">NameOfApp</p>
+        </div>
+        <div class="col-md-8 row block-config">
+            <div class="col-md-3 block-button1">
+                <div class="button1">
+                    <p class="button-name">Button1</p>
+                </div>
+            </div>
+            <div class="col-md-3 block-button2">
+                <div class="button2">
+                    <p class="button-name">Button2</p>
+                </div>
+            </div>
+            <div class="col-md-3 block-button3">
+                <div class="button3">
+                    <p class="button-name">Button3</p>
+                </div>
+            </div>
+            <div class="col-md-3 block-account">
+                <div class="account">
+                    <p class="button-name">Account</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row block-tables">
+
+        <div class="col-md-4 block-daily-tasks">
+            <div class="table">
+                <p class="table-name"> Список дел на @Model.CurrentDay</p>
+                <div class="task">
+                    @foreach (var task in Model.Tasks)
+                    {
+                        <div>
+                            <p>@task.Time</p>
+                        </div>
+                        <div>
+                            <p>@task.Task</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 block-everyday-tasks">
+            <div class="table">
+                <p class="table-name"> Ежедневные задачи</p>
+                <div class="task">
+                    @foreach (var task in Model.Tasks)
+                    {
+                        <div>
+                            <p>@task.Time</p>
+                        </div>
+                        <div>
+                            <p>@task.Task</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class=" col-md-4 block-noterms-tasks">
+            <div class="table">
+                <p class="table-name"> Бессрочные задачи</p>
+                <div class="task">
+                    @foreach (var task in Model.Tasks)
+                    {
+                        <div>
+                            <p>@task.Time</p>
+                        </div>
+                        <div>
+                            <p>@task.Task</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="add-task-background">
+
+    </div>
+</div>

@@ -1,0 +1,146 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+.dailyBackground {
+    background: rgba(255, 255, 255);
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    background-image: url(https://img.freepik.com/premium-vector/cute-cartoon-seamless-background-suitable-for-kid-wallpaper_6997-3327.jpg);
+    overflow-x: hidden;
+}/*задний фон*/
+
+    .dailyBackground .block-tables {
+        /*background: rgb(255, 0, 0);*/
+        margin: 5vh;
+        padding: 5vh 15vh 0vh 4vh;
+        border-radius: 30px;
+        position: relative;
+    }/*блок таблиц*/
+
+        .dailyBackground .block-tables .block-daily-tasks .table {
+            background: rgba(14,219,175, 0.5);
+            margin: 5vh;
+            height: 65vh;
+            border-radius: 30px;
+        }/*блок таблицы сегодняшних задач*/
+            .dailyBackground .block-tables .block-daily-tasks .table .table-name {
+                text-align: center;
+                padding: 10px 0 30px 0;
+            }
+            .dailyBackground .block-tables .block-daily-tasks .table .task {
+                overflow-y: scroll;
+                padding: 40px;
+                display: grid;
+                grid-template-columns: 50px calc(100% - 50px);
+                max-height: 40vh;
+            }
+                .dailyBackground .block-tables .block-daily-tasks .table .task div {
+                    border-bottom: 1px solid rgba(0,0,0, 0.3);
+                }
+
+
+        .dailyBackground .block-tables .block-everyday-tasks .table {
+            background: rgba(14,219,175, 0.5);
+            margin: 5vh;
+            height: 65vh;
+            border-radius: 30px;
+        }/*блок таблицы ежедневных задач*/
+            .dailyBackground .block-tables .block-everyday-tasks .table .table-name {
+                text-align: center;
+                padding: 10px 0 30px 0;
+            }
+            .dailyBackground .block-tables .block-everyday-tasks .table .task {
+                overflow-y: scroll;
+                padding: 40px;
+                display: grid;
+                grid-template-columns: 50px calc(100% - 50px);
+                max-height: 40vh;
+            }
+                .dailyBackground .block-tables .block-everyday-tasks .table .task div {
+                    border-bottom: 1px solid rgba(0,0,0, 0.3);
+                }
+
+
+        .dailyBackground .block-tables .block-noterms-tasks .table {
+            background: rgba(14,219,175, 0.5);
+            margin: 5vh;
+            height: 65vh;
+            border-radius: 30px;
+        }/*блок таблицы бессрочных задач*/
+        .dailyBackground .block-tables .block-noterms-tasks .table .table-name{
+            text-align: center;
+            padding: 10px 0 30px 0;
+        }
+            .dailyBackground .block-tables .block-noterms-tasks .table .task{
+                overflow-y: scroll;
+                padding: 40px;
+                display:grid;
+                grid-template-columns: 50px calc(100% - 50px);
+                max-height: 40vh;
+            }
+                .dailyBackground .block-tables .block-noterms-tasks .table .task div {
+                    border-bottom: 1px solid rgba(0,0,0, 0.3);
+                }
+
+
+
+    .dailyBackground .top-background {
+
+    }/*верхний фон и блок для верхнего интерфейса*/
+        .dailyBackground .top-background .title {
+            background: rgba(42, 152, 145);
+            height: 6vh;
+            margin: 0, 0, 5vh, 0;
+        }/*блок названия*/
+            .dailyBackground .top-background .title .title-text{
+                text-align:center;
+            }
+
+
+            .dailyBackground .top-background .block-config {
+                background: rgba(42, 152, 145);
+                height: 6vh;
+                margin: 0, 0, 5vh, 0;
+            }/*блок кнопок*/
+
+
+            .dailyBackground .top-background .block-config .block-button1 .button1 {
+                background: rgb(255, 0, 0);
+                height: 60px;
+                border-radius: 10px;
+            }/*кнопка 1*/
+                .dailyBackground .top-background .block-config .block-button1 .button1 .button-name {
+                    text-align: center;
+                }
+
+
+            .dailyBackground .top-background .block-config .block-button2 .button2 {
+                background: rgb(255, 0, 0);
+                height: 60px;
+                border-radius: 10px;
+            }/*кнопка 2*/
+                .dailyBackground .top-background .block-config .block-button2 .button2 .button-name {
+                    text-align: center;
+                }
+
+
+            .dailyBackground .top-background .block-config .block-button3 .button3 {
+                background: rgb(255, 0, 0);
+                height: 60px;
+                border-radius: 10px;
+            }/*кнопка 3*/
+                .dailyBackground .top-background .block-config .block-button3 .button3 .button-name {
+                    text-align: center;
+                }
+
+
+            .dailyBackground .top-background .block-config .block-account .account {
+                background: rgb(255, 0, 0);
+                height: 60px;
+                border-radius: 10px;
+            }/*кнопка аккаунта*/
+                .dailyBackground .top-background .block-config .block-account .account .button-name {
+                    text-align: center;
+                }
