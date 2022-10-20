@@ -8,46 +8,50 @@
     height: 100vh;
     overflow-x: hidden;
     background-image: url(https://img.freepik.com/premium-vector/cute-cartoon-seamless-background-suitable-for-kid-wallpaper_6997-3327.jpg);
-    overflow-x: hidden;
 }/*задний фон*/
 
     .dailyBackground .block-tables {
-        /*background: rgb(255, 0, 0);*/
-        margin: 5vh;
-        padding: 5vh 15vh 0vh 4vh;
+        padding: 5vh 20px 40px 20px;
         border-radius: 30px;
         position: relative;
     }/*блок таблиц*/
         .dailyBackground .block-tables .table {
             background: rgba(14,219,175, 0.5);
-            margin: 5vh;
+            margin: 5vh 5vw 0 0;
             height: 65vh;
             border-radius: 30px;
+            border: 3px solid rgba(0,0,0, 0.3);
         }/*блоки таблиц*/
 
             .dailyBackground .block-tables .table .task {
                 overflow-y: scroll;
                 padding: 40px;
-                display: grid;
-                grid-template-columns: 50px calc(100% - 50px);
-                max-height: 40vh;
+                max-height: 50vh;
             }/*блоки задач в таблицах*/
 
         .dailyBackground .block-tables .table .table-name {
             text-align: center;
             padding: 10px 0 30px 0;
         }/*названия таблиц*/
-
-
                 .dailyBackground .block-tables .table .task div {
                     border-bottom: 1px solid rgba(0,0,0, 0.3);
                 }
 
-                .dailyBackground .block-tables .table .task::-webkit-scrollbar {
-                    width: 10px;
-                    border-radius: 10px;
-                    background: rgba(14,219,175, 0.5);
+            .dailyBackground .block-tables .table .task .current-task {
+                display: grid;
+                grid-template-columns: 50px calc(100% - 50px);
+                font-size: 18px;
+                font-weight: 600;
+            }/*блок текущей задачи*/
+                .dailyBackground .block-tables .table .task .current-task:hover {
+                    background: rgb(256, 256, 256, 0.3);
                 }
+
+            .dailyBackground .block-tables .table .task::-webkit-scrollbar {
+                width: 10px;
+                border-radius: 10px;
+                background: rgba(14,219,175, 0.5);
+            }
 
                 .dailyBackground .block-tables .table .task::-webkit-scrollbar-thumb {
                     border-radius:10px;
@@ -55,37 +59,38 @@
                     background: rgba(14,219,175, 0.5);
                 }
 
-        .dailyBackground .top-background .title {
-            background: rgba(42, 152, 145);
-            height: 6vh;
-            margin: 0, 0, 5vh, 0;
-        }/*блок названия*/
+    .dailyBackground .top-background .title {
+        background: rgba(14,219,175);
+        height: 6vh;
+        margin: 0, 0, 5vh, 0;
+    }/*блок названия*/
 
             .dailyBackground .top-background .title .title-text {
                 text-align: center;
             }
 
 
-            .dailyBackground .top-background .block-config {
-                border-radius: 0 0 3vh 0;
-                padding: 0;
-                background: rgba(42, 152, 145);
-                display:grid;
-                grid-template-columns: 25% 25% 25% 25%;
-                height: 6vh;
-            }/*блок кнопок*/
+    .dailyBackground .top-background .block-config {
+        border-radius: 0 0 3vh 0;
+        padding: 0;
+        background: rgba(14,219,175);
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        height: 6vh;
+    }/*блок кнопок*/
 
-                .dailyBackground .top-background .block-config .button {
-                    background: rgb(255, 0, 0);
-                    height: 100%;
-                    width:100%;
-                }/*кнопки*/
+        .dailyBackground .top-background .block-config .button {
+            background: rgba(14,219,175, 0.5);
+            height: 100%;
+            width: 100%;
+            border-left: 2px solid rgba(0,0,0, 0.3);
+        }/*кнопки*/
                 .dailyBackground .top-background .block-config .account-button {
                     border-radius: 0 0 3vh 0;
-                    background: rgb(255, 0, 0);
-                    height: 100%;
-                    width: 100%;
                 }/*кнопка аккаунта*/
-                .dailyBackground .top-background .block-config .button .button-name {
-                    text-align: center;
-                }/*текст кнопок*/
+        .dailyBackground .top-background .block-config .button:hover{
+            background: rgb(128, 0, 0, 0.3);
+        }
+        .dailyBackground .top-background .block-config .button .button-name {
+            text-align: center;
+        }/*текст кнопок*/

@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="block-account">
-                <div class="account-button">
+                <div class="account-button button">
                     <p class="button-name">Account</p>
                 </div>
             </div>
@@ -38,11 +38,13 @@
                 <div class="task">
                     @foreach (var task in Model.Tasks)
                     {
-                        <div>
-                            <p>@task.Time</p>
-                        </div>
-                        <div>
-                            <p>@task.Task</p>
+                        <div class="current-task">
+                            <div>
+                                <p>@task.Time</p>
+                            </div>
+                            <div>
+                                <p>@task.Task</p>
+                            </div>
                         </div>
                     }
                 </div>
@@ -55,11 +57,13 @@
                 <div class="task">
                     @foreach (var task in Model.Tasks)
                     {
-                        <div>
-                            <p>@task.Time</p>
-                        </div>
-                        <div>
-                            <p>@task.Task</p>
+                        <div class="current-task">
+                            <div>
+                                <p>@task.Time</p>
+                            </div>
+                            <div>
+                                <p>@task.Task</p>
+                            </div>
                         </div>
                     }
                 </div>
@@ -72,11 +76,13 @@
                 <div class="task">
                     @foreach (var task in Model.Tasks)
                     {
-                        <div>
-                            <p>@task.Time</p>
-                        </div>
-                        <div>
-                            <p>@task.Task</p>
+                        <div class="current-task">
+                            <div>
+                                <p>@task.Time</p>
+                            </div>
+                            <div>
+                                <p>@task.Task</p>
+                            </div>
                         </div>
                     }
                 </div>
