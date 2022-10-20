@@ -55,10 +55,6 @@
                     background: rgba(14,219,175, 0.5);
                 }
 
-
-    .dailyBackground .top-background {
-    }/*верхний фон и блок для верхнего интерфейса*/
-
         .dailyBackground .top-background .title {
             background: rgba(42, 152, 145);
             height: 6vh;
@@ -71,6 +67,8 @@
 
 
             .dailyBackground .top-background .block-config {
+                border-radius: 0 0 3vh 0;
+                padding: 0;
                 background: rgba(42, 152, 145);
                 display:grid;
                 grid-template-columns: 25% 25% 25% 25%;
@@ -82,6 +80,12 @@
                     height: 100%;
                     width:100%;
                 }/*кнопки*/
+                .dailyBackground .top-background .block-config .account-button {
+                    border-radius: 0 0 3vh 0;
+                    background: rgb(255, 0, 0);
+                    height: 100%;
+                    width: 100%;
+                }/*кнопка аккаунта*/
                 .dailyBackground .top-background .block-config .button .button-name {
                     text-align: center;
                 }/*текст кнопок*/
