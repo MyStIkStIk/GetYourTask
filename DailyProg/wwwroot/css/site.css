@@ -16,7 +16,7 @@
         position: relative;
     }/*блок таблиц*/
         .dailyBackground .block-tables .table {
-            background: rgba(14,219,175, 0.9);
+            background: rgba(14,219,175, 0.3);
             margin: 5vh 5vw 0 0;
             height: 65vh;
             border-radius: 30px;
@@ -25,7 +25,7 @@
 
             .dailyBackground .block-tables .table .task {
                 overflow-y: scroll;
-                padding: 40px;
+                padding: 20px;
                 max-height: 50vh;
             }/*блоки задач в таблицах*/
 
@@ -65,6 +65,7 @@
         background: rgba(14,219,175);
         height: 6vh;
         margin: 0, 0, 5vh, 0;
+        position: fixed;
     }/*блок названия*/
 
             .dailyBackground .top-background .title .title-text {
@@ -79,14 +80,18 @@
         display: grid;
         grid-template-columns: 25% 25% 25% 25%;
         height: 6vh;
-    }/*блок кнопок*/
-
-        .dailyBackground .top-background .block-config .button {
-            background: rgba(14,219,175, 0.5);
-            height: 100%;
-            width: 100%;
-            border-left: 2px solid rgba(0,0,0, 0.3);
-        }/*кнопки*/
+        z-index:100;
+    }
+    .dailyBackground .top-background {
+        margin: auto;
+    }
+    /*блок кнопок*/
+    .dailyBackground .top-background .block-config .button {
+        background: rgba(14,219,175, 0.5);
+        height: 100%;
+        width: 100%;
+        border-left: 2px solid rgba(0,0,0, 0.3);
+    }/*кнопки*/
                 .dailyBackground .top-background .block-config .account-button {
                     border-radius: 0 0 3vh 0;
                 }/*кнопка аккаунта*/
@@ -96,3 +101,9 @@
         .dailyBackground .top-background .block-config .button .button-name {
             text-align: center;
         }/*текст кнопок*/
+         @media(max-width: 768px){
+            .block-config{
+                position:fixed;
+                bottom: 0;
+            }
+         }
