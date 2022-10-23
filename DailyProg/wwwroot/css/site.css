@@ -21,13 +21,13 @@
             height: 70vh;
             border-radius: 30px;
             border: 3px solid rgba(0,0,0, 0.4);
-        }/*блоки таблиц*/
+        }/*таблицы*/
 
             .dailyBackground .block-tables .table .block-add {
                 height: 50px;
                 padding: 10% 0 0 85%;
                 position: relative;
-            }
+            }/*блок добавления задачи*/
                 .dailyBackground .block-tables .table .block-add .button-add {
                     border-radius: 10px;
                     background: rgba(14,219,175, 0.5);
@@ -37,7 +37,7 @@
                     right: 20px;
                     height: 30px;
                     width: 30px;
-                }
+                }/*кнопка добавления задачи*/
             .dailyBackground .block-tables .table .task {
                 overflow-y: scroll;
                 padding: 5px 10px 10px 10px;
@@ -52,7 +52,7 @@
             }/*названия таблиц*/
                 .dailyBackground .block-tables .table .task div {
                     border-bottom: 1px solid rgba(0,0,0, 0.4);
-                }
+                }/*разделитель задач*/
 
             .dailyBackground .block-tables .table .task .current-task {
                 display: grid;
@@ -62,24 +62,23 @@
             }/*блок текущей задачи*/
                 .dailyBackground .block-tables .table .task .current-task:hover {
                     background: rgb(255, 255, 255, 0.3);
-                }
+                }/*выделение текущей задачи*/
 
             .dailyBackground .block-tables .table .task::-webkit-scrollbar {
                 width: 10px;
                 border-radius: 10px;
                 background: rgba(14,219,175, 0.5);
-            }
+            }/*скрол таблицы*/
 
                 .dailyBackground .block-tables .table .task::-webkit-scrollbar-thumb {
                     border-radius:10px;
                     border: 3px solid rgba(0,0,0, 0.3);
                     background: rgba(14,219,175, 0.5);
-                }
+                }/*ползунок скрола*/
 
             .dailyBackground .block-tables .table .task .current-task .block-done {
                 position: relative;
-            }
-
+            }/*блок галочки*/
             .dailyBackground .block-tables .table .task .current-task .block-done .button-done {
                 position: absolute;
                 border-radius: 10px;
@@ -89,14 +88,17 @@
                 right: 15px;
                 height: 30px;
                 width: 30px;
-            }
+            }/*галочка*/
 
-            .dailyBackground .top-background {
-                height: 8vh;
-                display: grid;
-                grid-template-columns: 90% 10%;
-                margin: auto;
-            }
+
+    .dailyBackground .top-background {
+        height: 8vh;
+        display: grid;
+        grid-template-columns: 90% 10%;
+        margin: auto;
+    }
+        /*верхний блок*/
+
         .dailyBackground .top-background .title {
             position: fixed;
             height: 8vh;
@@ -104,20 +106,18 @@
             margin: 15px, 0, 5vh, 0;
             z-index: 100;
         }/*блок названия*/
-
             .dailyBackground .top-background .title .title-text {
                 text-align: center;
                 font-size: 26px;
                 font-weight: 600;
-            }
-
+            }/*текст названия*/
 
         .dailyBackground .top-background .block-account {
             position: fixed;
             height: 8vh;
             z-index: 100;
-        }
-    /*блок кнопок*/
+        }/*блок кнопок*/
+
             .dailyBackground .top-background .block-account .button {
                 position: fixed;
                 top: 10px;
@@ -127,11 +127,62 @@
                 width: 50px;
                 border-radius: 50px;
             }/*кнопка аккаунта*/
-            .dailyBackground .top-background .block-account .button:hover {
-                background: rgb(128, 128, 128);
-            }
-            .dailyBackground .top-background .block-account .button .button-name {
-                text-align: center;
-            }/*текст кнопок*/
-         @media(max-width: 768px){
-         }
+                .dailyBackground .top-background .block-account .button:hover {
+                    background: rgb(128, 128, 128);
+                }/*выделение кнопки*/
+                .dailyBackground .top-background .block-account .button .button-name {
+                    text-align: center;
+                }/*текст кнопки*/
+
+
+.add-task-background {
+    position:fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    background: rgb(0, 0, 0, 0.9);
+}
+
+    .add-task-background .add-daily-form {
+        position: fixed;
+        left: 4vw;
+        top: 30vh;
+        background: rgba(14,219,175, 0.5);
+        height: 50vh;
+        width: 500px;
+        border-radius: 30px;
+        border: 3px solid rgba(0,0,0, 0.4);
+    }
+
+    .add-task-background .add-everyday-form {
+        position: fixed;
+        left: 37vw;
+        top: 30vh;
+        background: rgba(14,219,175, 0.5);
+        height: 50vh;
+        width: 500px;
+        border-radius: 30px;
+        border: 3px solid rgba(0,0,0, 0.4);
+    }
+
+    .add-task-background .add-noterms-form {
+        position: fixed;
+        left: 70vw;
+        top: 30vh;
+        background: rgba(14,219,175, 0.5);
+        height: 50vh;
+        width: 500px;
+        border-radius: 30px;
+        border: 3px solid rgba(0,0,0, 0.4);
+    }
+
+    .add-task-background .form{
+
+    }
+    .add-task-background .form .add-text {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+    }
