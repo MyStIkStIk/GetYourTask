@@ -11,42 +11,57 @@
 }/*задний фон*/
 
     .dailyBackground .block-tables {
-        padding: 5vh 20px 40px 20px;
+        padding: 2vh 20px 40px 20px;
         border-radius: 30px;
         position: relative;
     }/*блок таблиц*/
         .dailyBackground .block-tables .table {
-            background: rgba(14,219,175, 0.3);
+            background: rgba(14,219,175, 0.5);
             margin: 5vh 5vw 0 0;
-            height: 65vh;
+            height: 70vh;
             border-radius: 30px;
-            border: 3px solid rgba(0,0,0, 0.3);
+            border: 3px solid rgba(0,0,0, 0.4);
         }/*блоки таблиц*/
 
+            .dailyBackground .block-tables .table .block-add {
+                height: 50px;
+                padding: 10% 0 0 85%;
+                position: relative;
+            }
+                .dailyBackground .block-tables .table .block-add .button-add {
+                    border-radius: 10px;
+                    background: rgba(14,219,175, 0.5);
+                    border: 3px solid rgba(0,0,0, 0.4);
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    height: 30px;
+                    width: 30px;
+                }
             .dailyBackground .block-tables .table .task {
                 overflow-y: scroll;
-                padding: 20px;
+                padding: 5px 10px 10px 10px;
                 max-height: 50vh;
             }/*блоки задач в таблицах*/
 
             .dailyBackground .block-tables .table .table-name {
                 text-align: center;
-                padding: 10px 0 30px 0;
+                padding: 0 0 5px 0;
                 font-size: 22px;
                 font-weight: 600;
             }/*названия таблиц*/
                 .dailyBackground .block-tables .table .task div {
-                    border-bottom: 1px solid rgba(0,0,0, 0.3);
+                    border-bottom: 1px solid rgba(0,0,0, 0.4);
                 }
 
             .dailyBackground .block-tables .table .task .current-task {
                 display: grid;
-                grid-template-columns: 50px calc(100% - 50px);
+                grid-template-columns: 50px calc(100% - 100px) 50px;
                 font-size: 20px;
                 font-weight: 600;
             }/*блок текущей задачи*/
                 .dailyBackground .block-tables .table .task .current-task:hover {
-                    background: rgb(256, 256, 256, 0.3);
+                    background: rgb(255, 255, 255, 0.3);
                 }
 
             .dailyBackground .block-tables .table .task::-webkit-scrollbar {
@@ -61,49 +76,62 @@
                     background: rgba(14,219,175, 0.5);
                 }
 
-    .dailyBackground .top-background .title {
-        background: rgba(14,219,175);
-        height: 6vh;
-        margin: 0, 0, 5vh, 0;
-        position: fixed;
-    }/*блок названия*/
+            .dailyBackground .block-tables .table .task .current-task .block-done {
+                position: relative;
+            }
+
+            .dailyBackground .block-tables .table .task .current-task .block-done .button-done {
+                position: absolute;
+                border-radius: 10px;
+                background: rgba(14,219,175, 0.5);
+                border: 3px solid rgba(0,0,0, 0.4);
+                top: 15px;
+                right: 15px;
+                height: 30px;
+                width: 30px;
+            }
+
+            .dailyBackground .top-background {
+                height: 8vh;
+                display: grid;
+                grid-template-columns: 90% 10%;
+                margin: auto;
+            }
+        .dailyBackground .top-background .title {
+            position: fixed;
+            height: 8vh;
+            width: 90vw;
+            margin: 15px, 0, 5vh, 0;
+            z-index: 100;
+        }/*блок названия*/
 
             .dailyBackground .top-background .title .title-text {
                 text-align: center;
+                font-size: 26px;
+                font-weight: 600;
             }
 
 
-    .dailyBackground .top-background .block-config {
-        border-radius: 0 0 3vh 0;
-        padding: 0;
-        background: rgba(14,219,175);
-        display: grid;
-        grid-template-columns: 25% 25% 25% 25%;
-        height: 6vh;
-        z-index:100;
-    }
-    .dailyBackground .top-background {
-        margin: auto;
-    }
-    /*блок кнопок*/
-    .dailyBackground .top-background .block-config .button {
-        background: rgba(14,219,175, 0.5);
-        height: 100%;
-        width: 100%;
-        border-left: 2px solid rgba(0,0,0, 0.3);
-    }/*кнопки*/
-                .dailyBackground .top-background .block-config .account-button {
-                    border-radius: 0 0 3vh 0;
-                }/*кнопка аккаунта*/
-        .dailyBackground .top-background .block-config .button:hover{
-            background: rgb(128, 0, 0, 0.3);
+        .dailyBackground .top-background .block-account {
+            position: fixed;
+            height: 8vh;
+            z-index: 100;
         }
-        .dailyBackground .top-background .block-config .button .button-name {
-            text-align: center;
-        }/*текст кнопок*/
-         @media(max-width: 768px){
-            .block-config{
-                position:fixed;
-                bottom: 0;
+    /*блок кнопок*/
+            .dailyBackground .top-background .block-account .button {
+                position: fixed;
+                top: 10px;
+                right: 25px;
+                background: rgba(14,219,175);
+                height: 50px;
+                width: 50px;
+                border-radius: 50px;
+            }/*кнопка аккаунта*/
+            .dailyBackground .top-background .block-account .button:hover {
+                background: rgb(128, 128, 128);
             }
+            .dailyBackground .top-background .block-account .button .button-name {
+                text-align: center;
+            }/*текст кнопок*/
+         @media(max-width: 768px){
          }

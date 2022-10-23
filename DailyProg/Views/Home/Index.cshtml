@@ -3,30 +3,13 @@
     ViewData["Title"] = "Home Page";
 }
 <div class="dailyBackground">
-    <div class="row top-background">
-        <div class="col-md-4 title">
+    <div class="top-background">
+        <div class="title">
             <p class="title-text">NameOfApp</p>
         </div>
-        <div class="col-md-8 block-config">
-            <div class="block-button1">
-                <div class="button">
-                    <p class="button-name">Button1</p>
-                </div>
-            </div>
-            <div class="block-button2">
-                <div class="button">
-                    <p class="button-name">Button2</p>
-                </div>
-            </div>
-            <div class="block-button3">
-                <div class="button">
-                    <p class="button-name">Button3</p>
-                </div>
-            </div>
-            <div class="block-account">
-                <div class="account-button button">
-                    <p class="button-name">Account</p>
-                </div>
+        <div class="block-account">
+            <div class="button">
+                <p class="button-name">Account</p>
             </div>
         </div>
     </div>
@@ -34,6 +17,11 @@
 
         <div class="col-md-4 block-daily-tasks">
             <div class="table">
+                <div class="block-add">
+                    <div class="button-add">
+
+                    </div>
+                </div>
                 <p class="table-name"> Список дел на @Model.CurrentDay</p>
                 <div class="task">
                     @foreach (var task in Model.Tasks)
@@ -45,6 +33,10 @@
                             <div>
                                 <p>@task.Task</p>
                             </div>
+                            <div class="block-done">
+                                <div class="button-done">
+                                </div>
+                            </div>
                         </div>
                     }
                 </div>
@@ -53,6 +45,10 @@
 
         <div class="col-md-4 block-everyday-tasks">
             <div class="table">
+                <div class="block-add">
+                    <div class="button-add">
+                    </div>
+                </div>
                 <p class="table-name"> Ежедневные задачи</p>
                 <div class="task">
                     @foreach (var task in Model.Tasks)
@@ -64,7 +60,12 @@
                             <div>
                                 <p>@task.Task</p>
                             </div>
+                            <div class="block-done">
+                                <div class="button-done">
+                                </div>
+                            </div>
                         </div>
+                        
                     }
                 </div>
             </div>
@@ -72,6 +73,10 @@
 
         <div class=" col-md-4 block-noterms-tasks">
             <div class="table">
+                <div class="block-add">
+                    <div class="button-add">
+                    </div>
+                </div>
                 <p class="table-name"> Бессрочные задачи</p>
                 <div class="task">
                     @foreach (var task in Model.Tasks)
@@ -82,6 +87,10 @@
                             </div>
                             <div>
                                 <p>@task.Task</p>
+                            </div>
+                            <div class="block-done">
+                                <div class="button-done">
+                                </div>
                             </div>
                         </div>
                     }
