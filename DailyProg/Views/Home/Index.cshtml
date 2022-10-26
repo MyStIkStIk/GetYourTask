@@ -1,4 +1,4 @@
-﻿@model GetTodayTask
+﻿@model GetTasks
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -22,9 +22,9 @@
 
                     </div>
                 </div>
-                <p class="table-name"> Список дел на @Model.CurrentDay</p>
+                <p class="table-name"> Список дел на @Model.DailyTasks.CurrentDay</p>
                 <div class="task">
-                    @foreach (var task in Model.Tasks)
+                    @foreach (var task in Model.DailyTasks.Tasks)
                     {
                         <div class="current-task">
                             <div>
@@ -51,7 +51,7 @@
                 </div>
                 <p class="table-name"> Ежедневные задачи</p>
                 <div class="task">
-                    @foreach (var task in Model.Tasks)
+                    @foreach (var task in Model.EverydayTasks.Tasks)
                     {
                         <div class="current-task">
                             <div>
@@ -79,12 +79,9 @@
                 </div>
                 <p class="table-name"> Бессрочные задачи</p>
                 <div class="task">
-                    @foreach (var task in Model.Tasks)
+                    @foreach (var task in Model.NotermsTasks.Tasks)
                     {
                         <div class="current-task">
-                            <div>
-                                <p>@task.Time</p>
-                            </div>
                             <div>
                                 <p>@task.Task</p>
                             </div>
@@ -107,18 +104,15 @@
         </div>
         <div class="form">
             <p class="add-text">Укажите дату</p>
-            <div class="field">
-            </div>
+            <input class="field"/>
         </div>
         <div class="form">
             <p class="add-text">Укажите время</p>
-            <div class="field">
-            </div>
+            <input class="field"/>
         </div>
         <div class="form">
             <p class="add-text">Укажите задачу</p>
-            <div class="field">
-            </div>
+            <input class="field"/>
         </div>
     </div>
     <div class="add-everyday-form">
@@ -128,13 +122,11 @@
         </div>
         <div class="form">
             <p class="add-text">Укажите время</p>
-            <div class="field">
-            </div>
+            <input class="field"/>
         </div>
         <div class="form">
             <p class="add-text">Укажите задачу</p>
-            <div class="field">
-            </div>
+            <input class="field"/>
         </div>
     </div>
     <div class="add-noterms-form">
@@ -144,8 +136,7 @@
         </div>
         <div class="form">
             <p class="add-text">Укажите задачу</p>
-            <div class="field">
-            </div>
+            <input class="field"/>
         </div>
     </div>
 </div>

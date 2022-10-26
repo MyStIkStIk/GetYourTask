@@ -38,11 +38,20 @@
                     height: 30px;
                     width: 30px;
                 }/*кнопка добавления задачи*/
-            .dailyBackground .block-tables .table .task {
-                overflow-y: scroll;
-                padding: 5px 10px 10px 10px;
-                max-height: 50vh;
-            }/*блоки задач в таблицах*/
+                    .dailyBackground .block-tables .table .block-add .button-add:before {
+                        content: "+";
+                        color: rgba(14,219,175);
+                        position: absolute;
+                        font-size: 35px;
+                        font-weight: 600;
+                        margin: -22px -2px;
+                        text-shadow: 2px 0 1px rgba(0,0,0, 0.4), 0 2px 1px rgba(0,0,0, 0.4), -2px 0 1px rgba(0,0,0, 0.4), 0 -2px 1px rgba(0,0,0, 0.4);
+                    }
+                    .dailyBackground .block-tables .table .task {
+                        overflow-y: scroll;
+                        padding: 5px 10px 10px 10px;
+                        max-height: 50vh;
+                    }/*блоки задач в таблицах*/
 
             .dailyBackground .block-tables .table .table-name {
                 text-align: center;
@@ -96,8 +105,7 @@
         display: grid;
         grid-template-columns: 90% 10%;
         margin: auto;
-    }
-        /*верхний блок*/
+    }/*верхний блок*/
 
         .dailyBackground .top-background .title {
             position: fixed;
@@ -228,6 +236,8 @@
             height: 35px;
             margin: 0 20px 10px 20px;
             border: 3px solid rgba(0,0,0, 0.5);
+            padding: 0 10px 0 10px;
+            outline: none;
             border-radius: 10px;
         }
 @media(max-width: 768px) {
