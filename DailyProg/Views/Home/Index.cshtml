@@ -11,6 +11,16 @@
             <div class="button">
                 <p class="button-name">Account</p>
             </div>
+            <div class="account-info">
+                <div class="info-item type1 account">
+
+                </div>
+                <div class="info-item type1 settings">
+
+                </div>
+                <div class="info-item exit">
+                </div>
+            </div>
         </div>
     </div>
     <div class="row block-tables">
@@ -22,9 +32,9 @@
 
                     </div>
                 </div>
-                <p class="table-name"> Список дел на @Model.DailyTasks.CurrentDay</p>
-                <div class="task">
-                    @foreach (var task in Model.DailyTasks.Tasks)
+                <p class="table-name"> Список дел на @Model.CurrentDay</p>
+                <div class="task A-task">
+                    @foreach (var task in Model.DTasks)
                     {
                         <div class="current-task">
                             <div>
@@ -50,8 +60,8 @@
                     </div>
                 </div>
                 <p class="table-name"> Ежедневные задачи</p>
-                <div class="task">
-                    @foreach (var task in Model.EverydayTasks.Tasks)
+                <div class="task A-task">
+                    @foreach (var task in Model.ETasks)
                     {
                         <div class="current-task">
                             <div>
@@ -78,8 +88,8 @@
                     </div>
                 </div>
                 <p class="table-name"> Бессрочные задачи</p>
-                <div class="task">
-                    @foreach (var task in Model.NotermsTasks.Tasks)
+                <div class="task B-task">
+                    @foreach (var task in Model.NTasks)
                     {
                         <div class="current-task">
                             <div>
@@ -97,7 +107,7 @@
     </div>
 </div>
 <div class="add-task-background">
-    <div class="add-daily-form">
+    <div class="add-daily-form table">
         <div class="block-close">
             <div class="button-close">
             </div>
@@ -114,8 +124,11 @@
             <p class="add-text">Укажите задачу</p>
             <input class="field"/>
         </div>
+        <button class="add-task">
+            <p class="add-text">Добавить задачу</p>
+        </button>
     </div>
-    <div class="add-everyday-form">
+    <div class="add-everyday-form table">
         <div class="block-close">
             <div class="button-close">
             </div>
@@ -128,8 +141,11 @@
             <p class="add-text">Укажите задачу</p>
             <input class="field"/>
         </div>
+        <button class="add-task">
+            <p class="add-text">Добавить задачу</p>
+        </button>
     </div>
-    <div class="add-noterms-form">
+    <div class="add-noterms-form table">
         <div class="block-close">
             <div class="button-close">
             </div>
@@ -138,5 +154,8 @@
             <p class="add-text">Укажите задачу</p>
             <input class="field"/>
         </div>
+        <button class="add-task">
+            <p class="add-text">Добавить задачу</p>
+        </button>
     </div>
 </div>

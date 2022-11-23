@@ -22,3 +22,11 @@ $(".add-task-background .add-noterms-form .block-close .button-close").click(fun
     $(".add-task-background").removeClass("active");
     $(".add-noterms-form").removeClass("active");
 });
+$(".dailyBackground .top-background .block-account .button").hover(function () {
+    $(".account-info").addClass("active");
+    console.log($(this))
+});
+$(".block-tables").mouseover(function () {
+    $(".account-info").removeClass("active");
+    console.log($(this))
+});

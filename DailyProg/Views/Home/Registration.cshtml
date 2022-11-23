@@ -1,0 +1,70 @@
+﻿@model GetTasks
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="reg-background">
+    <div class="top-background">
+        <div class="title">
+            <p class="title-text">NameOfApp</p>
+        </div>
+        <div class="block-account">
+            <div class="button">
+                <p class="button-name">Account</p>
+            </div>
+        </div>
+    </div>
+    <div class="autorization-form">
+
+        <div class="sign-in-form">
+            <div class="form">
+                <p class="add-text">login</p>
+                <input/>
+            </div>
+            <div class="form">
+                <p class="add-text">password</p>
+                <input/>
+            </div>
+            <button class="login">
+                <p>login</p>
+            </button>
+            <button class="recover-pass">
+                <p>I forgot my password.</p>
+            </button>
+            <button class="sign-up">
+                <p>I don't have an account yet.</p>
+            </button>
+        </div>
+
+        <div class="sign-up-form">
+            <div class="form">
+                <p class="add-text">login</p>
+                <input/>
+            </div>
+            <div class="form">
+                <p class="add-text">password</p>
+                <input/>
+            </div>
+            <div class="form">
+                <p class="add-text">repeat password</p>
+                <input/>
+            </div>
+            <div class="form">
+                <p class="add-text">email</p>
+                <input/>
+            </div>
+            <button class="register">
+                <p>Create</p>
+            </button>
+            <button class="login">
+                <p>I already have an account.</p>
+            </button>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/js/site.js" asp-append-version="true"></script>
+}
+
+
