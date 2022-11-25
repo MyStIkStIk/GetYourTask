@@ -1,4 +1,4 @@
-﻿@model GetTasks
+﻿@model Tasks
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -135,11 +135,11 @@
         </div>
         <div class="form">
             <p class="add-text">Укажите время</p>
-            <input class="field"/>
+            <input class="field" name="time"/>
         </div>
         <div class="form">
             <p class="add-text">Укажите задачу</p>
-            <input class="field"/>
+            <input class="field" name="task"/>
         </div>
         <button class="add-task">
             <p class="add-text">Добавить задачу</p>
@@ -152,9 +152,9 @@
         </div>
         <div class="form">
             <p class="add-text">Укажите задачу</p>
-            <input class="field"/>
+            <input class="field n-task" name="task"/>
         </div>
-        <button class="add-task">
+        <button class="add-task add-n-task">
             <p class="add-text">Добавить задачу</p>
         </button>
     </div>

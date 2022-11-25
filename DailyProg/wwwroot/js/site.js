@@ -24,9 +24,52 @@ $(".add-task-background .add-noterms-form .block-close .button-close").click(fun
 });
 $(".dailyBackground .top-background .block-account .button").hover(function () {
     $(".account-info").addClass("active");
-    console.log($(this))
 });
 $(".block-tables").mouseover(function () {
     $(".account-info").removeClass("active");
-    console.log($(this))
 });
+$(".add-n-task").click(function () {
+    var request = $(".n-task").serialize();
+    GetData("CreateNTask", request);
+});
+function GetData(action, request) {
+    $.ajax({
+        type: "POST",
+        url: "/Home/" + action,
+        async: true,
+        cache: false,
+        timeout: 15000,
+        data: request,
+        success: function (data) {
+            console.log(data);
+            $(".add-task-background").removeClass("active");
+            $(".add-noterms-form").removeClass("active");
+            $(".add-everyday-form").removeClass("active");
+            $(".add-daily-form").removeClass("active");
+            AddTaskToNTask(data);
+        },
+        error: function (XML, status, error) {
+            console.log(status);
+        }
+    });
+}
+function AddTaskToNTask(data) {
+    let current = $("<div>");
+    current.addClass("current-task");
+
+    let p = $("<p>");
+    p.text(data);
+    let div = $("<div>");
+    div.append(p);
+
+    let div2 = $("<div>");
+    div2.addClass("block-done");
+    let button = $("<div>");
+    button.addClass("button-done");
+    div2.append(button);
+
+    current.append(div);
+    current.append(div2);
+
+    $(".B-task").append(current);
+}

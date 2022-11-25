@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -14,25 +15,31 @@ namespace DailyProg.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly IConfiguration _config;
-
-        public HomeController(ILogger<HomeController> logger, IConfiguration config)
+        readonly DbConnect _connect;
+        readonly Tasks _tasks;
+        public HomeController(DbConnect connect, Tasks task)
         {
-            _logger = logger;
-            _config = config;
-        }
-        public IDbConnection Connect
-        {
-            get
-            {
-                return new SqlConnection(_config.GetConnectionString("DailyConnect"));
-            }
+            _connect = connect;
+            _tasks = task;
         }
         public IActionResult Index()
         {
-            GetTasks tasks = new GetTasks(Connect);
-            return View(tasks);
+            _tasks.GetAllTasks(_connect);
+            return View(_tasks);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateNTask(string Ntask)
+        {
+            var result = await _tasks.CreateNTask(_connect, Ntask);
+            if (result.Status == Models.StatusCode.OK)
+            {
+                return Json("Ok");
+            }
+            else
+            {
+                return Error();
+            }
         }
 
         public IActionResult Privacy()
