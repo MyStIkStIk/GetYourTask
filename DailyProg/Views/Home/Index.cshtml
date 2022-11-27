@@ -3,7 +3,7 @@
     ViewData["Title"] = "Home Page";
 }
 <div class="dailyBackground">
-    <div class="top-background">
+    @*<div class="top-background">
         <div class="title">
             <p class="title-text">NameOfApp</p>
         </div>
@@ -22,31 +22,31 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
+
     <div class="row block-tables">
 
         <div class="col-md-4 block-daily-tasks">
             <div class="table">
-                <div class="block-add">
-                    <div class="button-add">
-
-                    </div>
+                <div class="block-add icon-box">
+                    <i class="fa fa-plus"></i>
                 </div>
                 <p class="table-name"> Список дел на @Model.CurrentDay</p>
                 <div class="task A-task">
                     @foreach (var task in Model.DTasks)
                     {
                         <div class="current-task">
-                            <div>
-                                <p>@task.Time</p>
-                            </div>
-                            <div>
-                                <p>@task.Task</p>
-                            </div>
-                            <div class="block-done">
-                                <div class="button-done">
-                                </div>
-                            </div>
+                            <p time=@task.Time>
+                                @task.Task
+                                <span>
+                                    <div class="edit-box icon-box">
+                                        <i class="fa fa-cog"></i>
+                                    </div>
+                                    <div class="check-box icon-box">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                </span>
+                            </p>
                         </div>
                     }
                 </div>
@@ -55,27 +55,26 @@
 
         <div class="col-md-4 block-everyday-tasks">
             <div class="table">
-                <div class="block-add">
-                    <div class="button-add">
-                    </div>
+                <div class="block-add icon-box">
+                    <i class="fa fa-plus"></i>
                 </div>
                 <p class="table-name"> Ежедневные задачи</p>
                 <div class="task A-task">
                     @foreach (var task in Model.ETasks)
                     {
                         <div class="current-task">
-                            <div>
-                                <p>@task.Time</p>
-                            </div>
-                            <div>
-                                <p>@task.Task</p>
-                            </div>
-                            <div class="block-done">
-                                <div class="button-done">
-                                </div>
-                            </div>
+                            <p time=@task.Time>
+                                @task.Task
+                                <span>
+                                    <div class="edit-box icon-box">
+                                        <i class="fa fa-cog"></i>
+                                    </div>
+                                    <div class="check-box icon-box">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                </span>
+                            </p>
                         </div>
-                        
                     }
                 </div>
             </div>
@@ -83,22 +82,25 @@
 
         <div class=" col-md-4 block-noterms-tasks">
             <div class="table">
-                <div class="block-add">
-                    <div class="button-add">
-                    </div>
+                <div class="block-add icon-box">
+                    <i class="fa fa-plus"></i>
                 </div>
                 <p class="table-name"> Бессрочные задачи</p>
                 <div class="task B-task">
                     @foreach (var task in Model.NTasks)
                     {
                         <div class="current-task">
-                            <div>
-                                <p>@task.Task</p>
-                            </div>
-                            <div class="block-done">
-                                <div class="button-done">
-                                </div>
-                            </div>
+                            <p>
+                                @task.Task
+                                <span>
+                                    <div class="edit-box icon-box">
+                                        <i class="fa fa-cog"></i>
+                                    </div>
+                                    <div class="check-box icon-box">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                </span>
+                            </p>
                         </div>
                     }
                 </div>

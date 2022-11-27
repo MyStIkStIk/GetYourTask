@@ -33,6 +33,8 @@ namespace DailyProg.Models
                 {
                     await database.ExecuteAsync("INSERT INTO NoTermTask VALUES (@NTask)", new { NTask = task });
                 }
+                baseResponce.Data = true;
+                baseResponce.Status = StatusCode.OK;
             }
             catch (Exception ex)
             {

@@ -29,9 +29,9 @@ namespace DailyProg.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateNTask(string Ntask)
+        public async Task<IActionResult> CreateNTask(string task)
         {
-            var result = await _tasks.CreateNTask(_connect, Ntask);
+            var result = await _tasks.CreateNTask(_connect, task);
             if (result.Status == Models.StatusCode.OK)
             {
                 return Json("Ok");

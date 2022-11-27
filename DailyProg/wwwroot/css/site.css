@@ -5,86 +5,157 @@
 
 .dailyBackground {
     z-index: 0;
-    background: rgba(255, 255, 255);
+    background: #333;
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
-    background-image: url(https://img.freepik.com/premium-vector/cute-cartoon-seamless-background-suitable-for-kid-wallpaper_6997-3327.jpg);
 }
+    .dailyBackground:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.6;
+        background-image: url(https://thumbs.dreamstime.com/b/%D0%B1%D0%B5%D1%81%D1%88%D0%BE%D0%B2%D0%BD%D0%B0%D1%8F-%D0%B8%D0%BB%D0%BB%D1%8E%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D1%8F-%D0%BD%D0%B0-%D1%82%D0%B5%D0%BC%D1%83-%D0%BC%D0%BE%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE-%D0%BF%D1%83%D1%82%D0%B5%D1%88%D0%B5%D1%81%D1%82%D0%B2%D0%B8%D1%8F-%D0%BF%D0%B0%D1%80%D1%83%D1%81%D0%BD%D1%8B%D1%85-%D0%BB%D0%BE%D0%B4%D0%BE%D0%BA-%D0%B8-165383782.jpg);
+        filter:blur(0.7px);
+    }
     /*задний фон*/
 
     .dailyBackground .block-tables {
-        padding: 2vh 20px 40px 20px;
+        margin: 15vh 0 0 0;
+        padding: 0 20px 40px 20px;
         border-radius: 30px;
-        position: relative;
     }
         /*блок таблиц*/
         .dailyBackground .block-tables .table {
-            background: rgba(14,219,175, 0.5);
-            margin: 5vh 5vw 0 0;
-            height: 70vh;
-            border-radius: 30px;
-            border: 3px solid rgba(0,0,0, 0.4);
+            position: relative;
+            background: rgba(143,72,255, 0.8);
+            background: linear-gradient(160deg, rgba(142,72,255, 0.7) 30%, rgba(82,96,255,0.8) 100%);
+            height: 75vh;
+            border-radius: 15px;
+            border: 3px solid rgba(0,0,0, 0.6);
         }
             /*таблицы*/
 
             .dailyBackground .block-tables .table .block-add {
-                height: 50px;
-                padding: 10% 0 0 85%;
-                position: relative;
+                position: absolute;
+                right: 10px;
+                top: 10px;
             }
-                /*блок добавления задачи*/
-                .dailyBackground .block-tables .table .block-add .button-add {
-                    border-radius: 10px;
-                    background: rgba(14,219,175, 0.5);
-                    border: 3px solid rgba(0,0,0, 0.4);
-                    position: absolute;
-                    top: 20px;
-                    right: 20px;
-                    height: 30px;
+                .dailyBackground .block-tables .table .icon-box i {
                     width: 30px;
+                    height: 30px;
+                    font-size: 23px;
+                    background: rgba(82,96,255,0.8);
+                    border-radius: 7px;
+                    border: 3px solid rgba(0,0,0, 0.5);
+                    padding: 1px 0 0 2px;
+                    color: rgba(0,0,0, 0.7);
                 }
-                    /*кнопка добавления задачи*/
-                    .dailyBackground .block-tables .table .block-add .button-add:before {
-                        content: "+";
-                        color: rgba(14,219,175);
-                        position: absolute;
-                        font-size: 35px;
-                        font-weight: 600;
-                        margin: -22px -2px;
-                        text-shadow: 2px 0 1px rgba(0,0,0, 0.4), 0 2px 1px rgba(0,0,0, 0.4), -2px 0 1px rgba(0,0,0, 0.4), 0 -2px 1px rgba(0,0,0, 0.4);
+            .dailyBackground .block-tables .table .task .icon-box i {
+                padding: 1px 0 0 0;
+            }
+                    .dailyBackground .block-tables .table .block-add i:hover {
+                        background: rgba(100,130,255,0.8);
+                        border: 3px solid rgba(0,0,0, 0.6);
+                        color: rgba(0,0,0, 0.8);
                     }
+
+            .dailyBackground .block-tables .table .table-name {
+                text-align: center;
+                padding: 10px;
+                font-size: 22px;
+                font-weight: 600;
+                color: #ccc;
+                background: rgba(0,0,0,0.3);
+                border-radius: 10px 10px 0 0;
+                border-bottom: 3px solid rgba(0,0,0, 0.1);
+            }
+            /*названия таблиц*/
 
             .dailyBackground .block-tables .table .task {
                 overflow-y: scroll;
                 padding: 5px 10px 10px 10px;
-                max-height: 50vh;
+                height: 60vh;
+                max-height: 60vh;
             }
             /*блоки задач в таблицах*/
 
-            .dailyBackground .block-tables .table .table-name {
-                text-align: center;
-                padding: 0 0 5px 0;
-                font-size: 22px;
-                font-weight: 600;
-            }
-            /*названия таблиц*/
-            .dailyBackground .block-tables .table .task div {
-                border-bottom: 1px solid rgba(0,0,0, 0.4);
-            }
-            /*разделитель задач*/
-
-            .dailyBackground .block-tables .table .task .current-task {
-                display: grid;
-                grid-template-columns: 50px calc(100% - 100px) 50px;
-                font-size: 20px;
-                font-weight: 600;
-            }
-                /*блок текущей задачи*/
-                .dailyBackground .block-tables .table .task .current-task:hover {
-                    background: rgb(255, 255, 255, 0.3);
+                .dailyBackground .block-tables .table .task p {
+                    background: rgba(0, 0, 0, 0.2);
+                    color: #ddd;
+                    margin: 0;
+                    padding: 20px;
+                    transition: 0.2s;
+                    border-bottom: 1px solid rgba(0,0,0, 0.3);
                 }
-            /*выделение текущей задачи*/
+
+                    .dailyBackground .block-tables .table .task p:before {
+                        display: inline-block;
+                        padding: 0 10px;
+                        font-family: "Font Awesome 5 Free";
+                        content: "\f111";
+                        color: #ccc;
+                    }
+
+                    .dailyBackground .block-tables .table .task p.active:before {
+                        color: #009999;
+                    }
+
+                    .dailyBackground .block-tables .table .task p:after {
+                        content: attr(time);
+                        display: block;
+                        color: #aaa;
+                        padding: 0 30px;
+                    }
+
+                    .dailyBackground .block-tables .table .task p:hover {
+                        background: rgba(0, 0, 0, 0.1);
+                        color: #eee;
+                        border-left: 5px solid #eee;
+                    }
+
+                        .dailyBackground .block-tables .table .task p:hover:after {
+                            content: attr(time);
+                            display: block;
+                            color: #ddd;
+                        }
+                .dailyBackground .block-tables .table .task .current-task{
+                    position: relative;
+                }
+                .dailyBackground .block-tables .table .task .edit-box {
+                    position: absolute;
+                    right: 55px;
+                    top: 20px;
+                }
+                    /*.dailyBackground .block-tables .table .task .edit-box i {
+                        width: 30px;
+                        height: 30px;
+                        font-size: 25px;
+                        background: rgba(82,96,255,0.8);
+                        border-radius: 7px;
+                        border: 3px solid rgba(0,0,0, 0.5);
+                        padding: 0 0 0 1px;
+                        color: rgba(0,0,0, 0.7);
+                    }*/
+                .dailyBackground .block-tables .table .task .check-box {
+                    position: absolute;
+                    right: 15px;
+                    top: 20px;
+                }
+                    /*.dailyBackground .block-tables .table .task .check-box i {
+                        width: 30px;
+                        height: 30px;
+                        font-size: 25px;
+                        background: rgba(82,96,255,0.8);
+                        border-radius: 7px;
+                        border: 3px solid rgba(0,0,0, 0.5);
+                        padding: 0 0 0 1px;
+                        color: rgba(0,0,0, 0.7);
+                    }*/
 
             .dailyBackground .block-tables .table .task::-webkit-scrollbar {
                 width: 10px;
@@ -99,22 +170,6 @@
                 background: rgba(14,219,175, 0.5);
             }
             /*ползунок скрола*/
-
-            .dailyBackground .block-tables .table .task .current-task .block-done {
-                position: relative;
-            }
-                /*блок галочки*/
-                .dailyBackground .block-tables .table .task .current-task .block-done .button-done {
-                    position: absolute;
-                    border-radius: 10px;
-                    background: rgba(14,219,175, 0.5);
-                    border: 3px solid rgba(0,0,0, 0.4);
-                    top: 15px;
-                    right: 15px;
-                    height: 30px;
-                    width: 30px;
-                }
-    /*галочка*/
 
 
     .dailyBackground .top-background {
@@ -193,7 +248,8 @@
 
 
 .add-task-background {
-    left: 0;
+    position: fixed;
+    left: -100vw;
     top: 0;
     width: 100vw;
     height: 100vh;
@@ -201,7 +257,7 @@
 }
 
     .add-task-background.active {
-        position: fixed;
+        left: 0;
         z-index: 100;
     }
 
