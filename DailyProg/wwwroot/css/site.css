@@ -32,7 +32,6 @@
         /*блок таблиц*/
         .dailyBackground .block-tables .table {
             position: relative;
-            background: rgba(143,72,255, 0.8);
             background: linear-gradient(160deg, rgba(142,72,255, 0.7) 30%, rgba(82,96,255,0.8) 100%);
             height: 75vh;
             border-radius: 15px;
@@ -45,7 +44,7 @@
                 right: 10px;
                 top: 10px;
             }
-                .dailyBackground .block-tables .table .icon-box i {
+                .dailyBackground .block-tables .table .block-add i {
                     width: 30px;
                     height: 30px;
                     font-size: 23px;
@@ -55,7 +54,7 @@
                     padding: 1px 0 0 2px;
                     color: rgba(0,0,0, 0.7);
                 }
-            .dailyBackground .block-tables .table .task .icon-box i {
+            .dailyBackground .block-tables .table .task .block-add i {
                 padding: 1px 0 0 0;
             }
                     .dailyBackground .block-tables .table .block-add i:hover {
@@ -78,6 +77,7 @@
 
             .dailyBackground .block-tables .table .task {
                 overflow-y: scroll;
+                overflow-x: hidden;
                 padding: 5px 10px 10px 10px;
                 height: 60vh;
                 max-height: 60vh;
@@ -90,7 +90,6 @@
                     margin: 0;
                     padding: 20px;
                     transition: 0.2s;
-                    border-bottom: 1px solid rgba(0,0,0, 0.3);
                 }
 
                     .dailyBackground .block-tables .table .task p:before {
@@ -100,75 +99,79 @@
                         content: "\f111";
                         color: #ccc;
                     }
-
                     .dailyBackground .block-tables .table .task p.active:before {
                         color: #009999;
                     }
-
                     .dailyBackground .block-tables .table .task p:after {
                         content: attr(time);
                         display: block;
                         color: #aaa;
                         padding: 0 30px;
                     }
-
                     .dailyBackground .block-tables .table .task p:hover {
                         background: rgba(0, 0, 0, 0.1);
                         color: #eee;
-                        border-left: 5px solid #eee;
                     }
-
                         .dailyBackground .block-tables .table .task p:hover:after {
                             content: attr(time);
                             display: block;
                             color: #ddd;
                         }
-                .dailyBackground .block-tables .table .task .current-task{
-                    position: relative;
-                }
-                .dailyBackground .block-tables .table .task .edit-box {
-                    position: absolute;
-                    right: 55px;
-                    top: 20px;
-                }
-                    /*.dailyBackground .block-tables .table .task .edit-box i {
-                        width: 30px;
-                        height: 30px;
-                        font-size: 25px;
-                        background: rgba(82,96,255,0.8);
-                        border-radius: 7px;
-                        border: 3px solid rgba(0,0,0, 0.5);
-                        padding: 0 0 0 1px;
-                        color: rgba(0,0,0, 0.7);
-                    }*/
-                .dailyBackground .block-tables .table .task .check-box {
-                    position: absolute;
-                    right: 15px;
-                    top: 20px;
-                }
-                    /*.dailyBackground .block-tables .table .task .check-box i {
-                        width: 30px;
-                        height: 30px;
-                        font-size: 25px;
-                        background: rgba(82,96,255,0.8);
-                        border-radius: 7px;
-                        border: 3px solid rgba(0,0,0, 0.5);
-                        padding: 0 0 0 1px;
-                        color: rgba(0,0,0, 0.7);
-                    }*/
 
-            .dailyBackground .block-tables .table .task::-webkit-scrollbar {
-                width: 10px;
-                border-radius: 10px;
-                background: rgba(14,219,175, 0.5);
-            }
+
+                .dailyBackground .block-tables .table .task .current-task {
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: calc(100%) 0 0;
+                    transition: 0,2s;
+                    border-bottom: 1px solid rgba(0,0,0, 0.3);
+                }
+                    .dailyBackground .block-tables .table .task .current-task .task-change-button {
+                        text-align: center;
+                        opacity: 0;
+                        pointer-events: none;
+                        display: flex;
+                        margin: auto;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    .dailyBackground .block-tables .table .task .current-task:hover .change-button {
+                        background: linear-gradient(90deg, rgba(0,0,0, 0.0) 50%, rgba(80, 207, 184, 0.3) 100%);
+                    }
+                    .dailyBackground .block-tables .table .task .current-task:hover .done-button {
+                        background: rgba(0, 0, 0, 0.2);
+                        background: linear-gradient(90deg, rgba(80, 207, 184, 0.3) 30%, rgb(228, 40, 40, 0,3) 100%);
+                    }
+                    .dailyBackground .block-tables .table .task .current-task:hover {
+                        width: 100%;
+                        display: grid;
+                        grid-template-columns: calc(100% - 140px) 70px 70px;
+                        border-left: 5px solid #eee;
+                    }
+                    .dailyBackground .block-tables .table .task .current-task:hover .task-change-button {
+                        opacity: 1;
+                        pointer-events: auto;
+                    }
+                        .dailyBackground .block-tables .table .task .current-task:hover .task-change-button:hover {
+                            background: rgba(0, 0, 0, 0.1);
+                        }
+
+                .dailyBackground .block-tables .table .task::-webkit-scrollbar {
+                    height: 40vh;
+                    margin: 0 2px 0 0;
+                    width: 10px;
+                    border-radius: 10px;
+                    background: rgba(0, 0, 0, 0.2);
+                }
             /*скрол таблицы*/
 
-            .dailyBackground .block-tables .table .task::-webkit-scrollbar-thumb {
-                border-radius: 10px;
-                border: 3px solid rgba(0,0,0, 0.3);
-                background: rgba(14,219,175, 0.5);
-            }
+                .dailyBackground .block-tables .table .task::-webkit-scrollbar-thumb {
+                    border-radius: 10px;
+                    border: 2px solid rgba(0,0,0, 0.1);
+                    background: rgba(0, 0, 0, 0.2);
+                }
             /*ползунок скрола*/
 
 

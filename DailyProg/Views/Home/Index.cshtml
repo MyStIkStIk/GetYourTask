@@ -28,25 +28,23 @@
 
         <div class="col-md-4 block-daily-tasks">
             <div class="table">
-                <div class="block-add icon-box">
+                <div class="block-add">
                     <i class="fa fa-plus"></i>
                 </div>
                 <p class="table-name"> Список дел на @Model.CurrentDay</p>
-                <div class="task A-task">
+                <div class="task">
                     @foreach (var task in Model.DTasks)
                     {
                         <div class="current-task">
-                            <p time=@task.Time>
-                                @task.Task
-                                <span>
-                                    <div class="edit-box icon-box">
-                                        <i class="fa fa-cog"></i>
-                                    </div>
-                                    <div class="check-box icon-box">
-                                        <i class="fa fa-check"></i>
-                                    </div>
-                                </span>
-                            </p>
+                            <div>
+                                <p time=@task.Time>@task.Task</p>
+                            </div>
+                            <div class="task-change-button change-button">
+                                <i class="fa fa-cog"></i>
+                            </div>
+                            <div class="task-change-button done-button">
+                                <i class="fa fa-check"></i>
+                            </div>
                         </div>
                     }
                 </div>
@@ -55,25 +53,23 @@
 
         <div class="col-md-4 block-everyday-tasks">
             <div class="table">
-                <div class="block-add icon-box">
+                <div class="block-add">
                     <i class="fa fa-plus"></i>
                 </div>
                 <p class="table-name"> Ежедневные задачи</p>
-                <div class="task A-task">
+                <div class="task">
                     @foreach (var task in Model.ETasks)
                     {
                         <div class="current-task">
-                            <p time=@task.Time>
-                                @task.Task
-                                <span>
-                                    <div class="edit-box icon-box">
-                                        <i class="fa fa-cog"></i>
-                                    </div>
-                                    <div class="check-box icon-box">
-                                        <i class="fa fa-check"></i>
-                                    </div>
-                                </span>
-                            </p>
+                            <div>
+                                <p time=@task.Time>@task.Task</p>
+                            </div>
+                            <div class="task-change-button change-button">
+                                <i class="fa fa-cog"></i>
+                            </div>
+                            <div class="task-change-button done-button">
+                                <i class="fa fa-check"></i>
+                            </div>
                         </div>
                     }
                 </div>
@@ -82,25 +78,23 @@
 
         <div class=" col-md-4 block-noterms-tasks">
             <div class="table">
-                <div class="block-add icon-box">
+                <div class="block-add">
                     <i class="fa fa-plus"></i>
                 </div>
                 <p class="table-name"> Бессрочные задачи</p>
-                <div class="task B-task">
+                <div class="task">
                     @foreach (var task in Model.NTasks)
                     {
                         <div class="current-task">
-                            <p>
-                                @task.Task
-                                <span>
-                                    <div class="edit-box icon-box">
-                                        <i class="fa fa-cog"></i>
-                                    </div>
-                                    <div class="check-box icon-box">
-                                        <i class="fa fa-check"></i>
-                                    </div>
-                                </span>
-                            </p>
+                            <div>
+                                <p>@task.Task</p>
+                            </div>
+                            <div class="task-change-button change-button">
+                                <i class="fa fa-cog"></i>
+                            </div>
+                            <div class="task-change-button done-button">
+                                <i class="fa fa-check"></i>
+                            </div>
                         </div>
                     }
                 </div>
