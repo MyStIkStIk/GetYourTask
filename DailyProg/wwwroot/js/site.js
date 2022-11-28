@@ -1,26 +1,32 @@
-﻿$(".dailyBackground .block-tables .block-daily-tasks .table .block-add .button-add").click(function () {
+﻿$(".dailyBackground .block-tables .block-daily-tasks .block-add").click(function () {
     $(".add-task-background").addClass("active");
     $(".add-daily-form").addClass("active");
 });
-$(".dailyBackground .block-tables .block-everyday-tasks .table .block-add .button-add").click(function () {
+$(".dailyBackground .block-tables .block-everyday-tasks .block-add").click(function () {
     $(".add-task-background").addClass("active");
     $(".add-everyday-form").addClass("active");
 });
-$(".dailyBackground .block-tables .block-noterms-tasks .table .block-add .button-add").click(function () {
+$(".dailyBackground .block-tables .block-noterms-tasks .block-add").click(function () {
     $(".add-task-background").addClass("active");
     $(".add-noterms-form").addClass("active");
 });
-$(".add-task-background .add-daily-form .block-close .button-close").click(function () {
+$(".add-task-tables .add-daily-form .block-close").click(function () {
     $(".add-task-background").removeClass("active");
     $(".add-daily-form").removeClass("active");
 });
-$(".add-task-background .add-everyday-form .block-close .button-close").click(function () {
+$(".add-task-tables .add-everyday-form .block-close").click(function () {
     $(".add-task-background").removeClass("active");
     $(".add-everyday-form").removeClass("active");
 });
-$(".add-task-background .add-noterms-form .block-close .button-close").click(function () {
+$(".add-task-tables .add-noterms-form .block-close").click(function () {
     $(".add-task-background").removeClass("active");
     $(".add-noterms-form").removeClass("active");
+});
+$(".add-task-background").click(function () {
+    $(".add-task-background").removeClass("active");
+    $(".add-noterms-form").removeClass("active");
+    $(".add-everyday-form").removeClass("active");
+    $(".add-daily-form").removeClass("active");
 });
 $(".dailyBackground .top-background .block-account .button").hover(function () {
     $(".account-info").addClass("active");

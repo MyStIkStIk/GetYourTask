@@ -31,7 +31,7 @@
                 <div class="block-add">
                     <i class="fa fa-plus"></i>
                 </div>
-                <p class="table-name"> Список дел на @Model.CurrentDay</p>
+                <p class="table-name"> Task on @Model.CurrentDay</p>
                 <div class="task">
                     @foreach (var task in Model.DTasks)
                     {
@@ -56,7 +56,7 @@
                 <div class="block-add">
                     <i class="fa fa-plus"></i>
                 </div>
-                <p class="table-name"> Ежедневные задачи</p>
+                <p class="table-name"> Everyday tasks</p>
                 <div class="task">
                     @foreach (var task in Model.ETasks)
                     {
@@ -81,7 +81,7 @@
                 <div class="block-add">
                     <i class="fa fa-plus"></i>
                 </div>
-                <p class="table-name"> Бессрочные задачи</p>
+                <p class="table-name"> No-term tasks</p>
                 <div class="task">
                     @foreach (var task in Model.NTasks)
                     {
@@ -103,55 +103,64 @@
     </div>
 </div>
 <div class="add-task-background">
+
+</div>
+<div class="add-task-tables">
     <div class="add-daily-form table">
         <div class="block-close">
-            <div class="button-close">
-            </div>
+            <i class="fa fa-times"></i>
         </div>
-        <div class="form">
-            <p class="add-text">Укажите дату</p>
-            <input class="field"/>
+        <p class="table-name">Add task on some day</p>
+        <div class="task">
+            <form asp-controller="home" asp-action="createdtask">
+                <div class="form-group">
+                    <label for="Date">Date:</label>
+                    <input asp-for="Date" class="form-input" />
+                </div>
+                <div class="form-group">
+                    <label for="Time">Time:</label>
+                    <input asp-for="Time" class="form-input" />
+                </div>
+                <div class="form-group">
+                    <label for="Task">Task:</label>
+                    <input asp-for="Task" class="form-input" />
+                </div>
+                <button class="add-task" type="submit">Add</button>
+            </form>
         </div>
-        <div class="form">
-            <p class="add-text">Укажите время</p>
-            <input class="field"/>
-        </div>
-        <div class="form">
-            <p class="add-text">Укажите задачу</p>
-            <input class="field"/>
-        </div>
-        <button class="add-task">
-            <p class="add-text">Добавить задачу</p>
-        </button>
     </div>
     <div class="add-everyday-form table">
         <div class="block-close">
-            <div class="button-close">
-            </div>
+            <i class="fa fa-times"></i>
         </div>
-        <div class="form">
-            <p class="add-text">Укажите время</p>
-            <input class="field" name="time"/>
+        <p class="table-name">Add task on some day</p>
+        <div class="task">
+            <form asp-controller="home" asp-action="createetask">
+                <div class="form-group">
+                    <label for="Time">Time:</label>
+                    <input asp-for="Time" class="form-input" />
+                </div>
+                <div class="form-group">
+                    <label for="Task">Task:</label>
+                    <input asp-for="Task" class="form-input" />
+                </div>
+                <button class="add-task" type="submit">Add</button>
+            </form>
         </div>
-        <div class="form">
-            <p class="add-text">Укажите задачу</p>
-            <input class="field" name="task"/>
-        </div>
-        <button class="add-task">
-            <p class="add-text">Добавить задачу</p>
-        </button>
     </div>
     <div class="add-noterms-form table">
         <div class="block-close">
-            <div class="button-close">
-            </div>
+            <i class="fa fa-times"></i>
         </div>
-        <div class="form">
-            <p class="add-text">Укажите задачу</p>
-            <input class="field n-task" name="task"/>
+        <p class="table-name">Add task on some day</p>
+        <div class="task">
+            <form asp-controller="home" asp-action="createntask">
+                <div class="form-group">
+                    <label for="Task">Task:</label>
+                    <input asp-for="Task" class="form-input" />
+                </div>
+                <button class="add-task" type="submit">Add</button>
+            </form>
         </div>
-        <button class="add-task add-n-task">
-            <p class="add-text">Добавить задачу</p>
-        </button>
     </div>
 </div>

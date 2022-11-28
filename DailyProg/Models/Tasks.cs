@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,6 +11,15 @@ namespace DailyProg.Models
 {
     public class Tasks
     {
+        [Display(Name = "Write down date for task")]
+        [DataType(DataType.Date)]
+        public string Date { get; set; }
+        [Display(Name = "Write down time for task")]
+        [DataType(DataType.Time)]
+        public string Time { get; set; }
+        [Display(Name = "Write down task")]
+        public string Task { get; set; }
+
         public string CurrentDay { get; set; }
         public List<GetNTask> NTasks { get; set; }
         public List<GetETask> ETasks { get; set; }

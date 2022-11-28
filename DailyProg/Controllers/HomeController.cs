@@ -27,7 +27,21 @@ namespace DailyProg.Controllers
             _tasks.GetAllTasks(_connect);
             return View(_tasks);
         }
-
+        [HttpPost]
+        public IActionResult CreateDTask(Tasks model)
+        {
+            Debug.WriteLine(model.Date);
+            Debug.WriteLine(model.Time);
+            Debug.WriteLine(model.Task);
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CreateETask(Tasks model)
+        {
+            Debug.WriteLine(model.Time);
+            Debug.WriteLine(model.Task);
+            return View();
+        }
         [HttpPost]
         public async Task<IActionResult> CreateNTask(string task)
         {
