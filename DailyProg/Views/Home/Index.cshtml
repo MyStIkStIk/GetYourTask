@@ -31,16 +31,19 @@
                 <div class="block-add">
                     <i class="fa fa-plus"></i>
                 </div>
-                <p class="table-name"> Task on @Model.CurrentDay</p>
+                <p class="table-name date-table" date="@DateTime.Now.ToString("dd.MM")"> Task on @DateTime.Now.ToString("dd.MM")</p>
                 <div class="task">
                     @foreach (var task in Model.DTasks)
                     {
                         <div class="current-task">
                             <div>
-                                <p time=@task.Time>@task.Task</p>
+                                <p task-id="@task.TaskID" time=@DateTime.Parse(@task.Time.ToString()).ToString("HH:mm")>@task.Task</p>
                             </div>
                             <div class="task-change-button change-button">
                                 <i class="fa fa-cog"></i>
+                            </div>
+                            <div class="task-change-button close-button">
+                                <i class="fa fa-times"></i>
                             </div>
                             <div class="task-change-button done-button">
                                 <i class="fa fa-check"></i>
@@ -62,10 +65,13 @@
                     {
                         <div class="current-task">
                             <div>
-                                <p time=@task.Time>@task.Task</p>
+                                <p task-id="@task.TaskID" time=@task.Time.ToString(@"hh\:mm")>@task.Task</p>
                             </div>
                             <div class="task-change-button change-button">
                                 <i class="fa fa-cog"></i>
+                            </div>
+                            <div class="task-change-button close-button">
+                                <i class="fa fa-times"></i>
                             </div>
                             <div class="task-change-button done-button">
                                 <i class="fa fa-check"></i>
@@ -87,10 +93,13 @@
                     {
                         <div class="current-task">
                             <div>
-                                <p>@task.Task</p>
+                                <p task-id="@task.TaskID">@task.Task</p>
                             </div>
                             <div class="task-change-button change-button">
                                 <i class="fa fa-cog"></i>
+                            </div>
+                            <div class="task-change-button close-button">
+                                <i class="fa fa-times"></i>
                             </div>
                             <div class="task-change-button done-button">
                                 <i class="fa fa-check"></i>
@@ -106,7 +115,7 @@
 
 </div>
 <div class="add-task-tables">
-    <div class="add-daily-form table">
+    <div class="add-daily-form add-table">
         <div class="block-close">
             <i class="fa fa-times"></i>
         </div>
@@ -129,11 +138,11 @@
             </form>
         </div>
     </div>
-    <div class="add-everyday-form table">
+    <div class="add-everyday-form add-table">
         <div class="block-close">
             <i class="fa fa-times"></i>
         </div>
-        <p class="table-name">Add task on some day</p>
+        <p class="table-name">Add everyday task</p>
         <div class="task">
             <form asp-controller="home" asp-action="createetask">
                 <div class="form-group">
@@ -148,11 +157,11 @@
             </form>
         </div>
     </div>
-    <div class="add-noterms-form table">
+    <div class="add-noterms-form add-table">
         <div class="block-close">
             <i class="fa fa-times"></i>
         </div>
-        <p class="table-name">Add task on some day</p>
+        <p class="table-name">Add no-term task</p>
         <div class="task">
             <form asp-controller="home" asp-action="createntask">
                 <div class="form-group">
@@ -164,3 +173,113 @@
         </div>
     </div>
 </div>
+<div class="change-task-tables">
+    <div class="add-daily-form add-table">
+        <div class="block-close">
+            <i class="fa fa-times"></i>
+        </div>
+        <p class="table-name">Change daily task</p>
+        <div class="task">
+            <form asp-controller="home" asp-action="changedtask">
+                <input asp-for="TaskID" class="form-input" />
+                <div class="form-group">
+                    <label for="Date">Date:</label>
+                    <input asp-for="Date" class="form-input" />
+                </div>
+                <div class="form-group">
+                    <label for="Time">Time:</label>
+                    <input asp-for="Time" class="form-input" />
+                </div>
+                <div class="form-group">
+                    <label for="Task">Task:</label>
+                    <input asp-for="Task" class="form-input" />
+                </div>
+                <button class="add-task" type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+    <div class="add-everyday-form add-table">
+        <div class="block-close">
+            <i class="fa fa-times"></i>
+        </div>
+        <p class="table-name">Change everyday task</p>
+        <div class="task">
+            <form asp-controller="home" asp-action="changeetask">
+                <input asp-for="TaskID" class="form-input" />
+                <div class="form-group">
+                    <label for="Time">Time:</label>
+                    <input asp-for="Time" class="form-input" />
+                </div>
+                <div class="form-group">
+                    <label for="Task">Task:</label>
+                    <input asp-for="Task" class="form-input" />
+                </div>
+                <button class="add-task" type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+    <div class="add-noterms-form add-table">
+        <div class="block-close">
+            <i class="fa fa-times"></i>
+        </div>
+        <p class="table-name">Change no-term task</p>
+        <div class="task">
+            <form asp-controller="home" asp-action="changentask">
+                <input asp-for="TaskID" class="form-input" />
+                <div class="form-group">
+                    <label for="Task">Task:</label>
+                    <input asp-for="Task" class="form-input" />
+                </div>
+                <button class="add-task" type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="delete-task-tables">
+    <div class="add-daily-form add-table">
+        <div class="block-close">
+            <i class="fa fa-times"></i>
+        </div>
+        <p class="table-name">Delete task?</p>
+        <div class="task">
+            <form asp-controller="home" asp-action="deletedtask">
+                <div class="form-group">
+                    <label></label>
+                </div>
+                <input asp-for="TaskID" class="form-input" />
+                <button class="add-task" type="submit">Delete</button>
+            </form>
+        </div>
+    </div>
+    <div class="add-everyday-form add-table">
+        <div class="block-close">
+            <i class="fa fa-times"></i>
+        </div>
+        <p class="table-name">Delete task?</p>
+        <div class="task">
+            <form asp-controller="home" asp-action="deleteetask">
+                <div class="form-group">
+                    <label></label>
+                </div>
+                <input asp-for="TaskID" class="form-input"/>
+                <button class="add-task" type="submit">Delete</button>
+            </form>
+        </div>
+    </div>
+    <div class="add-noterms-form add-table">
+        <div class="block-close">
+            <i class="fa fa-times"></i>
+        </div>
+        <p class="table-name">Delete task?</p>
+        <div class="task">
+            <form asp-controller="home" asp-action="deletentask">
+                <div class="form-group">
+                    <label></label>
+                </div>
+                <input asp-for="TaskID" class="form-input" />
+                <button class="add-task" type="submit">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+

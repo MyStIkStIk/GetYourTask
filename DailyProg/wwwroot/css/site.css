@@ -134,14 +134,14 @@
                 .dailyBackground .block-tables .table .task .current-task {
                     width: 100%;
                     display: grid;
-                    grid-template-columns: calc(100%) 0 0;
+                    grid-template-columns: calc(100%) 0 0 0;
                     transition: 0.3s;
                     border-bottom: 1px solid rgba(0,0,0, 0.3);
                 }
                     .dailyBackground .block-tables .table .task .current-task:hover {
                         width: 100%;
                         display: grid;
-                        grid-template-columns: calc(100% - 140px) 70px 70px;
+                        grid-template-columns: calc(100% - 210px) 70px 70px 70px;
                         border-left: 5px solid #eee;
                     }
                         .dailyBackground .block-tables .table .task .current-task:hover .task-change-button {
@@ -160,41 +160,54 @@
                         width: 100%;
                         height: 100%;
                     }
+
                     .dailyBackground .block-tables .table .task .current-task:hover .change-button {
+                        background: rgb(48, 33, 181, 0.6);
+                    }
+                    .dailyBackground .block-tables .table .task .current-task:hover .close-button {
                         background: rgba(36, 78, 194, 0.6);
                     }
                     .dailyBackground .block-tables .table .task .current-task:hover .done-button {
                         background: rgba(228,40,40, 0.5);
                     }
+
                     .dailyBackground .block-tables .table .task .current-task:hover .change-button:hover {
+                        background: rgb(68, 53, 201, 0.6);
+                    }
+                    .dailyBackground .block-tables .table .task .current-task:hover .close-button:hover {
                         background: rgba(50, 100, 214, 0.6);
                     }
                     .dailyBackground .block-tables .table .task .current-task:hover .done-button:hover {
                         background: rgba(228,40,40, 0.6);
                     }
+
                     .dailyBackground .block-tables .table .task .current-task:hover .change-button:active {
-                        background: rgba(60, 120, 230, 0.8);
+                        background: rgb(68, 53, 201, 0.9);
+                    }
+                    .dailyBackground .block-tables .table .task .current-task:hover .close-button:active {
+                        background: rgba(60, 120, 230, 0.6);
                     }
                     .dailyBackground .block-tables .table .task .current-task:hover .done-button:active {
                         background: rgba(240,55,55, 0.7);
                     }
-                    
+                /*Current Task*/
 
                 .dailyBackground .block-tables .table .task::-webkit-scrollbar {
                     height: 40vh;
                     margin: 0 2px 0 0;
                     width: 10px;
                     border-radius: 10px;
-                    background: rgba(0, 0, 0, 0.2);
                 }
             /*скрол таблицы*/
 
                 .dailyBackground .block-tables .table .task::-webkit-scrollbar-thumb {
                     border-radius: 10px;
                     border: 2px solid rgba(0,0,0, 0.1);
-                    background: rgba(0, 0, 0, 0.2);
+                    background: rgba(0, 0, 0, 0.3);
                 }
             /*ползунок скрола*/
+
+
 
 
     .dailyBackground .top-background {
@@ -204,7 +217,6 @@
         margin: auto;
     }
         /*верхний блок*/
-
         .dailyBackground .top-background .title {
             position: fixed;
             height: 8vh;
@@ -219,14 +231,12 @@
                 font-weight: 600;
             }
         /*текст названия*/
-
         .dailyBackground .top-background .block-account {
             position: fixed;
             height: 8vh;
             z-index: 100;
         }
             /*блок кнопок*/
-
             .dailyBackground .top-background .block-account .account-info {
                 position: fixed;
                 z-index: 10;
@@ -250,7 +260,6 @@
                 .dailyBackground .top-background .block-account .account-info .type1 {
                     border-bottom: 1px solid rgba(0,0,0, 0.4);
                 }
-
             .dailyBackground .top-background .block-account .button {
                 z-index: 5;
                 position: fixed;
@@ -274,7 +283,7 @@
 
 
 
-.add-task-tables .table {
+.add-table {
     position: fixed;
     left: -100vw;
     top: 30vh;
@@ -288,25 +297,25 @@
     border: 3px solid rgba(0,0,0, 0.6);
 }
 
-.add-task-tables .add-daily-form.active {
+.add-daily-form.active {
     left: calc(50% - 250px);
 }
 
-.add-task-tables .add-everyday-form.active {
+.add-everyday-form.active {
     left: calc(50% - 250px);
 }
 
-.add-task-tables .add-noterms-form.active {
+.add-noterms-form.active {
     left: calc(50% - 250px);
 }
 
-.add-task-tables .block-close {
+.block-close {
     position: absolute;
     right: 15px;
     top: 15px;
 }
 
-    .add-task-tables .block-close i {
+    .block-close i {
         width: 30px;
         height: 30px;
         font-size: 23px;
@@ -317,13 +326,13 @@
         color: rgba(0,0,0, 0.7);
     }
 
-        .add-task-tables .block-close i:hover {
+        .block-close i:hover {
             background: rgba(100,130,255,0.8);
             border: 3px solid rgba(0,0,0, 0.6);
             color: rgba(0,0,0, 0.8);
         }
 
-.add-task-tables .table .table-name {
+.add-table .table-name {
     text-align: center;
     padding: 10px;
     font-size: 22px;
@@ -334,21 +343,21 @@
     border-bottom: 3px solid rgba(0,0,0, 0.1);
 }
 
-.add-task-tables .form-group {
+.form-group {
     width: 100%;
     height: 80px;
     margin: 0 0 20px 0;
     padding: 20px;
 }
 
-    .add-task-tables .form-group label {
+    .form-group label {
         width: 100%;
         text-align: left;
         font-size: 20px;
         font-weight: 600;
     }
 
-    .add-task-tables .form-group .form-input {
+    .form-group .form-input {
         background: rgba(14,219,175, 0.4);
         width: 100%;
         height: 35px;
@@ -357,41 +366,62 @@
         padding: 0 10px 0 10px;
         outline: none;
         border-radius: 10px;
+        color: #000;
     }
-.add-task-tables .task .add-task {
+
+.add-task-tables .form-group .form-input.input-validation-error {
+    background: rgba(230, 73, 73, 0.4);
+}
+
+.add-task-tables .form-group .form-input::placeholder {
+    color: rgba(30,30,30);
+}
+
+.task .add-task {
     background: rgba(14,219,175, 0.4);
     height: 35px;
     width: 200px;
     border: 3px solid rgba(0,0,0, 0.5);
     padding: 0 10px 0 10px;
     border-radius: 10px;
-    margin: 20px 0 10px calc(240px - 100px);
+    margin: 20px 0 10px calc(100% - 50% - 100px);
 }
 
+.delete-task-tables .form-group {
+    height: 20px;
+    margin: 0 0 10px 0;
+}
+
+.delete-task-tables .form-group label{
+    text-align: center;
+}
         @media(max-width: 768px) {
-            .add-task-tables .add-daily-form {
-        width: 90vw;
-    }
+            .add-daily-form {
+                top: 15vh;
+                width: 90vw;
+            }
 
-        .add-task-tables .add-daily-form.active {
+        .add-daily-form.active {
             left: 5vw;
             width: 90vw;
         }
 
-    .add-task-tables .add-everyday-form {
-        width: 90vw;
-    }
+            .add-everyday-form {
+                top: 15vh;
+                width: 90vw;
+            }
 
-        .add-task-tables .add-everyday-form.active {
+        .add-everyday-form.active {
             left: 5vw;
             width: 90vw;
         }
 
-    .add-task-tables .add-noterms-form {
-        width: 90vw;
-    }
+            .add-noterms-form {
+                top: 15vh;
+                width: 90vw;
+            }
 
-        .add-task-tables .add-noterms-form.active {
+        .add-noterms-form.active {
             left: 5vw;
             width: 90vw;
         }

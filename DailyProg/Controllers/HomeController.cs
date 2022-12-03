@@ -28,27 +28,38 @@ namespace DailyProg.Controllers
             return View(_tasks);
         }
         [HttpPost]
-        public IActionResult CreateDTask(Tasks model)
+        public async Task<IActionResult> CreateDTask(DTask model)
         {
-            Debug.WriteLine(model.Date);
-            Debug.WriteLine(model.Time);
-            Debug.WriteLine(model.Task);
-            return View();
+            if (ModelState.IsValid)
+            {
+                var result = await _tasks.CreateDTask(_connect, model);
+                if (result.Status == Models.StatusCode.OK)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            return Error();
         }
         [HttpPost]
-        public IActionResult CreateETask(Tasks model)
+        public async Task<IActionResult> CreateETask(ETask model)
         {
-            Debug.WriteLine(model.Time);
-            Debug.WriteLine(model.Task);
-            return View();
+            if (ModelState.IsValid)
+            {
+                var result = await _tasks.CreateETask(_connect, model);
+                if (result.Status == Models.StatusCode.OK)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            return Error();
         }
         [HttpPost]
-        public async Task<IActionResult> CreateNTask(string task)
+        public async Task<IActionResult> CreateNTask(NTask model)
         {
-            var result = await _tasks.CreateNTask(_connect, task);
+            var result = await _tasks.CreateNTask(_connect, model);
             if (result.Status == Models.StatusCode.OK)
             {
-                return Json("Ok");
+                return RedirectToAction("Index");
             }
             else
             {
@@ -56,6 +67,85 @@ namespace DailyProg.Controllers
             }
         }
 
+        [HttpPost]
+        public async Task<IActionResult> ChangeDTask(DTask model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _tasks.ChangeDTask(_connect, model);
+                if (result.Status == Models.StatusCode.OK)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            return Error();
+        }
+        [HttpPost]
+        public async Task<IActionResult> ChangeETask(ETask model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _tasks.ChangeETask(_connect, model);
+                if (result.Status == Models.StatusCode.OK)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            return Error();
+        }
+        [HttpPost]
+        public async Task<IActionResult> ChangeNTask(NTask model)
+        {
+            var result = await _tasks.ChangeNTask(_connect, model);
+            if (result.Status == Models.StatusCode.OK)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return Error();
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteDTask(int TaskID)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _tasks.DeleteDTask(_connect, TaskID);
+                if (result.Status == Models.StatusCode.OK)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            return Error();
+        }
+        [HttpPost]
+        public async Task<IActionResult> DeleteETask(int TaskID)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _tasks.DeleteETask(_connect, TaskID);
+                if (result.Status == Models.StatusCode.OK)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            return Error();
+        }
+        [HttpPost]
+        public async Task<IActionResult> DeleteNTask(int TaskID)
+        {
+            var result = await _tasks.DeleteNTask(_connect, TaskID);
+            if (result.Status == Models.StatusCode.OK)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return Error();
+            }
+        }
         public IActionResult Privacy()
         {
             return View();
