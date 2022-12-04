@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Policy;
 using System.Threading.Tasks;
 
 namespace DailyProg.Models
@@ -24,14 +25,14 @@ namespace DailyProg.Models
                 DTasks = database.Query<ETask>("SELECT TaskID, Time, Task FROM DailyTask WHERE MONTH(Date) = MONTH(GETDATE()) AND DAY(Date) = DAY(GETDATE()) AND YEAR(Date) <= YEAR(GETDATE())").ToList();
             }
         }
-        public async  Task<BaseResponce<bool>> CreateNTask(DbConnect connect, NTask task)
+        public async Task<BaseResponce<bool>> CreateNTask(DbConnect connect, NTask task)
         {
             BaseResponce<bool> baseResponce = new BaseResponce<bool>();
             try
             {
                 using (IDbConnection database = connect.Connect)
                 {
-                    await database.ExecuteAsync("INSERT INTO NoTermTask VALUES (1, @Task)", task);
+                    await database.ExecuteAsync("INSERT INTO NoTermTask VALUES (1, @Task, 0)", task);
                 }
                 baseResponce.Data = true;
                 baseResponce.Status = StatusCode.OK;
@@ -50,7 +51,7 @@ namespace DailyProg.Models
             {
                 using (IDbConnection database = connect.Connect)
                 {
-                    await database.ExecuteAsync("INSERT INTO EverydayTask VALUES (1, @Time, @Task)", task);
+                    await database.ExecuteAsync("INSERT INTO EverydayTask VALUES (1, @Time, @Task, 0)", task);
                 }
                 baseResponce.Data = true;
                 baseResponce.Status = StatusCode.OK;
@@ -69,7 +70,7 @@ namespace DailyProg.Models
             {
                 using (IDbConnection database = connect.Connect)
                 {
-                    await database.ExecuteAsync("INSERT INTO DailyTask VALUES (1, @Date, @Time, @Task)", task);
+                    await database.ExecuteAsync("INSERT INTO DailyTask VALUES (1, @Date, @Time, @Task, 0)", task);
                 }
                 baseResponce.Data = true;
                 baseResponce.Status = StatusCode.OK;
@@ -195,11 +196,95 @@ namespace DailyProg.Models
             }
             return baseResponce;
         }
+        public async Task<BaseResponce<bool>> DoneNTask(DbConnect connect, MyTask task)
+        {
+            BaseResponce<bool> baseResponce = new BaseResponce<bool>();
+            try
+            {
+                using (IDbConnection database = connect.Connect)
+                {
+                    if (task.Done == 0)
+                    {
+                        await database.ExecuteAsync("UPDATE NoTermTask SET Done = 1 WHERE TaskID = @TaskID", task);
+                    }
+                    if (task.Done == 1)
+                    {
+                        await database.ExecuteAsync("UPDATE NoTermTask SET Done = 0 WHERE TaskID = @TaskID", task);
+                    }
+                }
+                baseResponce.Data = true;
+                baseResponce.Status = StatusCode.OK;
+            }
+            catch (Exception ex)
+            {
+                baseResponce.Message = ex.Message;
+                baseResponce.Status = StatusCode.Error;
+            }
+            return baseResponce;
+        }
+        public async Task<BaseResponce<bool>> DoneETask(DbConnect connect, MyTask task)
+        {
+            BaseResponce<bool> baseResponce = new BaseResponce<bool>();
+            try
+            {
+                using (IDbConnection database = connect.Connect)
+                {
+                    if (task.Done == 0)
+                    {
+                        await database.ExecuteAsync("UPDATE EverydayTask SET Done = 1 WHERE TaskID = @TaskID", task);
+                    }
+                    if (task.Done == 1)
+                    {
+                        await database.ExecuteAsync("UPDATE EverydayTask SET Done = 0 WHERE TaskID = @TaskID", task);
+                    }
+                }
+                baseResponce.Data = true;
+                baseResponce.Status = StatusCode.OK;
+            }
+            catch (Exception ex)
+            {
+                baseResponce.Message = ex.Message;
+                baseResponce.Status = StatusCode.Error;
+            }
+            return baseResponce;
+        }
+        public async Task<BaseResponce<bool>> DoneDTask(DbConnect connect, MyTask task)
+        {
+            BaseResponce<bool> baseResponce = new BaseResponce<bool>();
+            try
+            {
+                using (IDbConnection database = connect.Connect)
+                {
+                    if (task.Done == 0)
+                    {
+                        await database.ExecuteAsync("UPDATE DailyTask SET Done = 1 WHERE TaskID = @TaskID", task);
+                    }
+                    if (task.Done == 1)
+                    {
+                        await database.ExecuteAsync("UPDATE DailyTask SET Done = 0 WHERE TaskID = @TaskID", task);
+                    }
+                }
+                baseResponce.Data = true;
+                baseResponce.Status = StatusCode.OK;
+            }
+            catch (Exception ex)
+            {
+                baseResponce.Message = ex.Message;
+                baseResponce.Status = StatusCode.Error;
+            }
+            return baseResponce;
+        }
     }
-    public class NTask
+    public class MyTask
     {
         [HiddenInput(DisplayValue = false)]
         public int TaskID { get; set; }
+
+        [HiddenInput(DisplayValue = false)]
+        public int Done { get; set; }
+    }
+    public class NTask : MyTask
+    {
         [Required]
         [StringLength(50, MinimumLength = 5)]
         [Display(Prompt = "Write down task")]

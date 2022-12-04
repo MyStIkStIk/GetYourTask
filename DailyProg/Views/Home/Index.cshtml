@@ -37,17 +37,21 @@
                     {
                         <div class="current-task">
                             <div>
-                                <p task-id="@task.TaskID" time=@DateTime.Parse(@task.Time.ToString()).ToString("HH:mm")>@task.Task</p>
+                                <p done="@task.Done" task-id="@task.TaskID" time=@DateTime.Parse(@task.Time.ToString()).ToString("HH:mm")>@task.Task</p>
                             </div>
-                            <div class="task-change-button change-button">
+                            <button class="task-change-button change-button">
                                 <i class="fa fa-cog"></i>
-                            </div>
-                            <div class="task-change-button close-button">
+                            </button>
+                            <button class="task-change-button close-button">
                                 <i class="fa fa-times"></i>
-                            </div>
-                            <div class="task-change-button done-button">
-                                <i class="fa fa-check"></i>
-                            </div>
+                            </button>
+                            <form asp-controller="home" asp-action="donedtask">
+                                <input asp-for="Done" value="@task.Done" class="form-input" />
+                                <input asp-for="TaskID" value="@task.TaskID" class="form-input" />
+                                <button class="task-change-button done-button" type="submit">
+                                    <i class="fa fa-check"></i>
+                                </button>
+                            </form>
                         </div>
                     }
                 </div>
@@ -65,17 +69,21 @@
                     {
                         <div class="current-task">
                             <div>
-                                <p task-id="@task.TaskID" time=@task.Time.ToString(@"hh\:mm")>@task.Task</p>
+                                <p done="@task.Done" task-id="@task.TaskID" time=@task.Time.ToString(@"hh\:mm")>@task.Task</p>
                             </div>
-                            <div class="task-change-button change-button">
+                            <button class="task-change-button change-button">
                                 <i class="fa fa-cog"></i>
-                            </div>
-                            <div class="task-change-button close-button">
+                            </button>
+                            <button class="task-change-button close-button">
                                 <i class="fa fa-times"></i>
-                            </div>
-                            <div class="task-change-button done-button">
-                                <i class="fa fa-check"></i>
-                            </div>
+                            </button>
+                            <form asp-controller="home" asp-action="doneetask">
+                                <input asp-for="Done" value="@task.Done" class="form-input" />
+                                <input asp-for="TaskID" value="@task.TaskID" class="form-input" />
+                                <button  class="task-change-button done-button" type="submit">
+                                    <i class="fa fa-check"></i>
+                                </button>
+                            </form>
                         </div>
                     }
                 </div>
@@ -93,17 +101,21 @@
                     {
                         <div class="current-task">
                             <div>
-                                <p task-id="@task.TaskID">@task.Task</p>
+                                <p done="@task.Done" task-id="@task.TaskID">@task.Task</p>
                             </div>
-                            <div class="task-change-button change-button">
+                            <button class="task-change-button change-button">
                                 <i class="fa fa-cog"></i>
-                            </div>
-                            <div class="task-change-button close-button">
+                            </button>
+                            <button class="task-change-button close-button">
                                 <i class="fa fa-times"></i>
-                            </div>
-                            <div class="task-change-button done-button">
-                                <i class="fa fa-check"></i>
-                            </div>
+                            </button>
+                            <form asp-controller="home" asp-action="donentask">
+                                <input asp-for="Done" value="@task.Done" class="form-input" />
+                                <input asp-for="TaskID" value="@task.TaskID" class="form-input" />
+                                <button class="task-change-button done-button" type="submit">
+                                    <i class="fa fa-check"></i>
+                                </button>
+                            </form>
                         </div>
                     }
                 </div>

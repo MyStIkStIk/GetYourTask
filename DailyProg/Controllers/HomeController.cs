@@ -146,6 +146,45 @@ namespace DailyProg.Controllers
                 return Error();
             }
         }
+        [HttpPost]
+        public async Task<IActionResult> DoneDTask(MyTask model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _tasks.DoneDTask(_connect, model);
+                if (result.Status == Models.StatusCode.OK)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            return Error();
+        }
+        [HttpPost]
+        public async Task<IActionResult> DoneETask(MyTask model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _tasks.DoneETask(_connect, model);
+                if (result.Status == Models.StatusCode.OK)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            return Error();
+        }
+        [HttpPost]
+        public async Task<IActionResult> DoneNTask(MyTask model)
+        {
+            var result = await _tasks.DoneNTask(_connect, model);
+            if (result.Status == Models.StatusCode.OK)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return Error();
+            }
+        }
         public IActionResult Privacy()
         {
             return View();

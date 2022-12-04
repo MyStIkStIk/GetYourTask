@@ -112,6 +112,22 @@ $(".delete-task-tables .add-noterms-form .block-close").click(function () {
 
 
 
+//$(".dailyBackground .block-tables .block-daily-tasks .current-task .done-button").click(function () {
+//    var txt = $(this).prev().prev().prev().find("p");
+//    $(this("#TaskID")).val(txt.attr("task-id"));
+//    $(this("#Done")).val(txt.attr("done"));
+//});
+//$(".dailyBackground .block-tables .block-everyday-tasks .current-task .done-button").click(function () {
+//    var txt = $(this).prev().prev().prev().find("p");
+//    $(this("#TaskID")).val(txt.attr("task-id"));
+//    $(this("#Done")).val(txt.attr("done"));
+//});
+//$(".dailyBackground .block-tables .block-noterms-tasks .current-task .done-button").click(function () {
+//    var txt = $(this).prev().prev().prev().find("p");
+//    $(".dailyBackground .block-tables .block-noterms-tasks .current-task #TaskID").val(txt.attr("task-id"));
+//    $(".dailyBackground .block-tables .block-noterms-tasks .current-task #Done").val(txt.attr("done"));
+//});
+
 $(".add-task-background").click(function () {
     $(".add-task-background").removeClass("active");
     $(".add-noterms-form").removeClass("active");
