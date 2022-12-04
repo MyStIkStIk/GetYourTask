@@ -1,1 +1,84 @@
-﻿
+﻿.my-form {
+    height: 380px;
+    width: 500px;
+    left: calc(50% - 200px);
+    top: calc(50% - 190px);
+    position: absolute;
+    background: rgba(105,35,225, 1);
+    border-bottom: 3px solid rgba(0,0,0, 0.6);
+    border-left: 3px solid rgba(0,0,0, 0.6);
+    border-right: 3px solid rgba(0,0,0, 0.6);
+}
+
+    .my-form .form-btn {
+        position: absolute;
+        height: 40px;
+        width: 250px;
+        border-radius: 15px 15px 0 0;
+        border-top: 3px solid rgba(0,0,0, 0.6);
+        border-left: 3px solid rgba(0,0,0, 0.6);
+        border-right: 3px solid rgba(0,0,0, 0.6);
+        top: calc(0% - 40px);
+        background: rgba(105,35,225, 1);
+    }
+
+        .my-form .form-btn:hover {
+            background: rgba(130,60,240, 1);
+        }
+
+    .my-form.active .form-btn {
+        background: rgba(142,72,255, 1);
+    }
+    .my-form.active .form-btn:hover {
+        background: rgba(142,72,255, 1);
+    }
+
+    .my-form .auth-btn {
+        background: rgba(14,219,175, 0.4);
+        height: 35px;
+        width: 200px;
+        border: 3px solid rgba(0,0,0, 0.5);
+        padding: 0 10px 0 10px;
+        border-radius: 10px;
+        margin: 20px 0 10px calc(100% - 50% - 100px);
+    }
+
+.login-form {
+    z-index: 100;
+    padding: 100px 0 0 0;
+    border-radius: 0 15px 15px 15px;
+    border-top: 3px solid rgba(0,0,0, 0.6);
+}
+
+    .login-form.active {
+        z-index: 200;
+        background: linear-gradient(160deg, rgba(142,72,255, 1) 30%, rgba(82,96,255, 1) 100%);
+    }
+    .login-form .login-btn {
+        left: -3px;
+    }
+.register-form {
+    z-index: 100;
+    border-radius: 15px 0 15px 15px;
+    border-top: 3px solid rgba(0,0,0, 0.6);
+}
+    .register-form.active {
+        z-index: 200;
+        background: linear-gradient(160deg, rgba(142,72,255, 1) 30%, rgba(82,96,255, 1) 100%);
+    }
+.register-form .register-btn {
+    left: 247px;
+}
+@media(max-width: 768px){
+    .my-form {
+        width: 90vw;
+        left: 5vw;
+        top: 20vh;
+    }
+        .my-form .form-btn {
+            width: 45vw;
+        }
+    .register-form .register-btn {
+        left: 50%;
+    }
+}

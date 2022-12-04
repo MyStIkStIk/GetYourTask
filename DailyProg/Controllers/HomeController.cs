@@ -22,6 +22,10 @@ namespace DailyProg.Controllers
             _connect = connect;
             _tasks = task;
         }
+        public IActionResult Register()
+        {
+            return View();
+        }
         public IActionResult Index()
         {
             _tasks.GetAllTasks(_connect);
@@ -185,11 +189,11 @@ namespace DailyProg.Controllers
                 return Error();
             }
         }
+
         public IActionResult Privacy()
         {
             return View();
         }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
