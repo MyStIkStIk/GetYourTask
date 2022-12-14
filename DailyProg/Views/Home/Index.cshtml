@@ -33,26 +33,29 @@
                 </div>
                 <p class="table-name date-table" date="@DateTime.Now.ToString("dd.MM")"> Task on @DateTime.Now.ToString("dd.MM")</p>
                 <div class="task">
-                    @foreach (var task in Model.DTasks)
+                    @if (Model != null)
                     {
-                        <div class="current-task">
-                            <div>
-                                <p done="@task.Done" task-id="@task.TaskID" time=@DateTime.Parse(@task.Time.ToString()).ToString("HH:mm")>@task.Task</p>
-                            </div>
-                            <button class="task-change-button change-button">
-                                <i class="fa fa-cog"></i>
-                            </button>
-                            <button class="task-change-button close-button">
-                                <i class="fa fa-times"></i>
-                            </button>
-                            <form asp-controller="home" asp-action="donedtask">
-                                <input asp-for="Done" value="@task.Done" class="form-input" />
-                                <input asp-for="TaskID" value="@task.TaskID" class="form-input" />
-                                <button class="task-change-button done-button" type="submit">
-                                    <i class="fa fa-check"></i>
+                        @foreach (var task in Model.DTasks)
+                        {
+                            <div class="current-task">
+                                <div>
+                                    <p done="@task.Done" task-id="@task.TaskID" time=@DateTime.Parse(@task.Time.ToString()).ToString("HH:mm")>@task.Task</p>
+                                </div>
+                                <button class="task-change-button change-button">
+                                    <i class="fa fa-cog"></i>
                                 </button>
-                            </form>
-                        </div>
+                                <button class="task-change-button close-button">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                                <form asp-controller="home" asp-action="donedtask">
+                                    <input asp-for="Done" value="@task.Done" class="form-input" />
+                                    <input asp-for="TaskID" value="@task.TaskID" class="form-input" />
+                                    <button class="task-change-button done-button" type="submit">
+                                        <i class="fa fa-check"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        }
                     }
                 </div>
             </div>
@@ -65,26 +68,29 @@
                 </div>
                 <p class="table-name"> Everyday tasks</p>
                 <div class="task">
-                    @foreach (var task in Model.ETasks)
+                    @if (Model != null)
                     {
-                        <div class="current-task">
-                            <div>
-                                <p done="@task.Done" task-id="@task.TaskID" time=@task.Time.ToString(@"hh\:mm")>@task.Task</p>
-                            </div>
-                            <button class="task-change-button change-button">
-                                <i class="fa fa-cog"></i>
-                            </button>
-                            <button class="task-change-button close-button">
-                                <i class="fa fa-times"></i>
-                            </button>
-                            <form asp-controller="home" asp-action="doneetask">
-                                <input asp-for="Done" value="@task.Done" class="form-input" />
-                                <input asp-for="TaskID" value="@task.TaskID" class="form-input" />
-                                <button  class="task-change-button done-button" type="submit">
-                                    <i class="fa fa-check"></i>
+                        @foreach (var task in Model.ETasks)
+                        {
+                            <div class="current-task">
+                                <div>
+                                    <p done="@task.Done" task-id="@task.TaskID" time=@task.Time.ToString(@"hh\:mm")>@task.Task</p>
+                                </div>
+                                <button class="task-change-button change-button">
+                                    <i class="fa fa-cog"></i>
                                 </button>
-                            </form>
-                        </div>
+                                <button class="task-change-button close-button">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                                <form asp-controller="home" asp-action="doneetask">
+                                    <input asp-for="Done" value="@task.Done" class="form-input" />
+                                    <input asp-for="TaskID" value="@task.TaskID" class="form-input" />
+                                    <button  class="task-change-button done-button" type="submit">
+                                        <i class="fa fa-check"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        }
                     }
                 </div>
             </div>
@@ -97,26 +103,29 @@
                 </div>
                 <p class="table-name"> No-term tasks</p>
                 <div class="task">
-                    @foreach (var task in Model.NTasks)
+                    @if (Model != null)
                     {
-                        <div class="current-task">
-                            <div>
-                                <p done="@task.Done" task-id="@task.TaskID">@task.Task</p>
-                            </div>
-                            <button class="task-change-button change-button">
-                                <i class="fa fa-cog"></i>
-                            </button>
-                            <button class="task-change-button close-button">
-                                <i class="fa fa-times"></i>
-                            </button>
-                            <form asp-controller="home" asp-action="donentask">
-                                <input asp-for="Done" value="@task.Done" class="form-input" />
-                                <input asp-for="TaskID" value="@task.TaskID" class="form-input" />
-                                <button class="task-change-button done-button" type="submit">
-                                    <i class="fa fa-check"></i>
+                        @foreach (var task in Model.NTasks)
+                        {
+                            <div class="current-task">
+                                <div>
+                                    <p done="@task.Done" task-id="@task.TaskID">@task.Task</p>
+                                </div>
+                                <button class="task-change-button change-button">
+                                    <i class="fa fa-cog"></i>
                                 </button>
-                            </form>
-                        </div>
+                                <button class="task-change-button close-button">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                                <form asp-controller="home" asp-action="donentask">
+                                    <input asp-for="Done" value="@task.Done" class="form-input" />
+                                    <input asp-for="TaskID" value="@task.TaskID" class="form-input" />
+                                    <button class="task-change-button done-button" type="submit">
+                                        <i class="fa fa-check"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        }
                     }
                 </div>
             </div>

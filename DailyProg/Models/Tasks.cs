@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Claims;
 using System.Security.Policy;
 using System.Threading.Tasks;
 
@@ -16,13 +18,13 @@ namespace DailyProg.Models
         public List<NTask> NTasks { get; set; }
         public List<ETask> ETasks { get; set; }
         public List<ETask> DTasks { get; set; }
-        public void GetAllTasks(DbConnect connect)
+        public void GetAllTasks(DbConnect connect, Guid Id)
         {
             using (IDbConnection database = connect.Connect)
             {
-                NTasks = database.Query<NTask>("SELECT TaskID,Task FROM NoTermTask").ToList();
-                ETasks = database.Query<ETask>("SELECT TaskID, Time, Task FROM EverydayTask").ToList();
-                DTasks = database.Query<ETask>("SELECT TaskID, Time, Task FROM DailyTask WHERE MONTH(Date) = MONTH(GETDATE()) AND DAY(Date) = DAY(GETDATE()) AND YEAR(Date) <= YEAR(GETDATE())").ToList();
+                NTasks = database.Query<NTask>("SELECT TaskID,Task FROM NoTermTask WHERE UserID = @UserId", new { UserId = Id }).ToList();
+                ETasks = database.Query<ETask>("SELECT TaskID, Time, Task FROM EverydayTask  WHERE UserID = @UserId", new { UserId = Id }).ToList();
+                DTasks = database.Query<ETask>("SELECT TaskID, Time, Task FROM DailyTask WHERE MONTH(Date) = MONTH(GETDATE()) AND DAY(Date) = DAY(GETDATE()) AND YEAR(Date) <= YEAR(GETDATE()) AND UserID = @UserId", new { UserId = Id }).ToList();
             }
         }
         public async Task<BaseResponce<bool>> CreateNTask(DbConnect connect, NTask task)
@@ -32,7 +34,7 @@ namespace DailyProg.Models
             {
                 using (IDbConnection database = connect.Connect)
                 {
-                    await database.ExecuteAsync("INSERT INTO NoTermTask VALUES (1, @Task, 0)", task);
+                    await database.ExecuteAsync("INSERT INTO NoTermTask VALUES (@UserID, @Task, 0)", task);
                 }
                 baseResponce.Data = true;
                 baseResponce.Status = StatusCode.OK;
@@ -51,7 +53,7 @@ namespace DailyProg.Models
             {
                 using (IDbConnection database = connect.Connect)
                 {
-                    await database.ExecuteAsync("INSERT INTO EverydayTask VALUES (1, @Time, @Task, 0)", task);
+                    await database.ExecuteAsync("INSERT INTO EverydayTask VALUES (@UserID, @Time, @Task, 0)", task);
                 }
                 baseResponce.Data = true;
                 baseResponce.Status = StatusCode.OK;
@@ -70,7 +72,7 @@ namespace DailyProg.Models
             {
                 using (IDbConnection database = connect.Connect)
                 {
-                    await database.ExecuteAsync("INSERT INTO DailyTask VALUES (1, @Date, @Time, @Task, 0)", task);
+                    await database.ExecuteAsync("INSERT INTO DailyTask VALUES (@UserID, @Date, @Time, @Task, 0)", task);
                 }
                 baseResponce.Data = true;
                 baseResponce.Status = StatusCode.OK;
@@ -278,6 +280,8 @@ namespace DailyProg.Models
     public class MyTask
     {
         [HiddenInput(DisplayValue = false)]
+        public Guid UserID { get; set; }
+        [HiddenInput(DisplayValue = false)]
         public int TaskID { get; set; }
 
         [HiddenInput(DisplayValue = false)]
@@ -285,21 +289,21 @@ namespace DailyProg.Models
     }
     public class NTask : MyTask
     {
-        [Required]
-        [StringLength(50, MinimumLength = 5)]
+        [Required(ErrorMessage = "Write down your task")]
+        [StringLength(50, MinimumLength = 1, ErrorMessage ="String length must be 1-50")]
         [Display(Prompt = "Write down task")]
         public string Task { get; set; }
     }
     public class ETask : NTask
     {
-        [Required]
+        [Required(ErrorMessage = "Choose the time")]
         [Display(Prompt = "Write down time for task")]
         [DataType(DataType.Time)]
         public TimeSpan Time { get; set; }
     }
     public class DTask : ETask
     {
-        [Required]
+        [Required(ErrorMessage = "choose a date")]
         [Display(Prompt = "Write down date for task")]
         [DataType(DataType.Date)]
         public DateTime Date { get; set; } = DateTime.Now;

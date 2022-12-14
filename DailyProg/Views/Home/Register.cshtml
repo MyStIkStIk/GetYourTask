@@ -5,33 +5,41 @@
 <div class="dailyBackground">
     <div class="login-form my-form active">
         <div class="login-btn form-btn">Sign-in</div>
-        <form asp-controller="home" asp-action="login">
+
+        <form asp-controller="home" asp-action="signin" method="post">
             <div class="form-group">
-                <label asp-for="Email">Email:</label>
-                <input asp-for="Email" class="form-input" />
+                <label asp-for="UserEmail">Email:</label>
+                <input asp-for="UserEmail" class="form-input" />
+                <span asp-validation-for="UserEmail"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Password">Password:</label>
-                <input asp-for="Password" class="form-input" />
+                <label asp-for="UserPassword">Password:</label>
+                <input asp-for="UserPassword" class="form-input" />
+                <span asp-validation-for="UserPassword"></span>
             </div>
+            @Model.Message
             <button class="auth-btn" type="submit">Login</button>
         </form>
     </div>
     <div class="register-form my-form">
         <div class="register-btn form-btn">Sign-up</div>
-        <form asp-controller="home" asp-action="register">
+        <form asp-controller="home" asp-action="signup" method="post">
             <div class="form-group">
-                <label asp-for="Email">Email:</label>
-                <input asp-for="Email" class="form-input" />
+                <label asp-for="UserEmail">Email:</label>
+                <input asp-for="UserEmail" class="form-input" />
+                <span asp-validation-for="UserEmail"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Password">Password:</label>
-                <input asp-for="Password" class="form-input" />
+                <label asp-for="UserPassword">Password:</label>
+                <input asp-for="UserPassword" class="form-input" />
+                <span asp-validation-for="UserPassword"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PasswordConfirm">Confirm password:</label>
                 <input asp-for="PasswordConfirm" class="form-input" />
+                <span asp-validation-for="PasswordConfirm"></span>
             </div>
+            @Model.Message
             <button class ="auth-btn" type="submit">Register</button>
         </form>
     </div>
