@@ -6,7 +6,7 @@
     <div class="login-form my-form active">
         <div class="login-btn form-btn">Sign-in</div>
 
-        <form asp-controller="home" asp-action="signin" method="post">
+        <form asp-controller="account" asp-action="signin" method="post">
             <div class="form-group">
                 <label asp-for="UserEmail">Email:</label>
                 <input asp-for="UserEmail" class="form-input" />
@@ -23,7 +23,7 @@
     </div>
     <div class="register-form my-form">
         <div class="register-btn form-btn">Sign-up</div>
-        <form asp-controller="home" asp-action="signup" method="post">
+        <form asp-controller="account" asp-action="signup" method="post">
             <div class="form-group">
                 <label asp-for="UserEmail">Email:</label>
                 <input asp-for="UserEmail" class="form-input" />

@@ -1,7 +1,48 @@
-﻿﻿* {
+﻿@viewport {
+    user-zoom: fixed;
+}
+﻿* {
     margin: 0;
     padding: 0;
 }
+body{
+    overflow: hidden;
+}
+del {
+    text-decoration: line-through;
+    text-decoration-color: rgb(217, 220, 228);
+    text-decoration-style: solid;
+}
+.sign-out {
+    position: fixed;
+    top: 35px;
+    right: 35px;
+    height: 50px;
+    width: 50px;
+    border: 2px solid rgba(0,0,0, 0.3);
+    background: rgba(122,52,235, 0.7);
+    border-radius: 25px;
+}
+.sign-out button{
+    position: fixed;
+    top: 35px;
+    right: 35px;
+    height: 50px;
+    width: 50px;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-radius: 25px;
+    color: #ccc;
+}
+    .sign-out:hover {
+        background: rgba(122,52,235, 0.6);
+        color: #fff;
+    }
+    .sign-out:active {
+        background: rgba(122,52,235, 0.5);
+        color: #fff;
+    }
 .add-task-background {
     z-index: 100;
     position: fixed;
@@ -40,9 +81,11 @@
     /*задний фон*/
 
     .dailyBackground .block-tables {
+        left: 0;
         margin: 15vh 0 0 0;
         padding: 0 20px 40px 20px;
         border-radius: 30px;
+        transition: 0.2s;
     }
         /*блок таблиц*/
         .dailyBackground .block-tables .table {
@@ -103,17 +146,6 @@
                     padding: 20px;
                     transition: 0.2s;
                 }
-
-                    .dailyBackground .block-tables .table .task p:before {
-                        display: inline-block;
-                        padding: 0 10px;
-                        font-family: "Font Awesome 5 Free";
-                        content: "\f111";
-                        color: #ccc;
-                    }
-                    .dailyBackground .block-tables .table .task p.active:before {
-                        color: #009999;
-                    }
                     .dailyBackground .block-tables .table .task p:after {
                         content: attr(time);
                         display: block;
@@ -145,6 +177,7 @@
                         border-left: 5px solid #eee;
                     }
                     .dailyBackground .block-tables .table .task .current-task .task-change-button {
+                        outline: none;
                         text-align: center;
                         opacity: 0;
                         pointer-events: none;
@@ -210,81 +243,6 @@
             /*ползунок скрола*/
 
 
-
-
-    .dailyBackground .top-background {
-        height: 8vh;
-        display: grid;
-        grid-template-columns: 90% 10%;
-        margin: auto;
-    }
-        /*верхний блок*/
-        .dailyBackground .top-background .title {
-            position: fixed;
-            height: 8vh;
-            width: 90vw;
-            margin: 15px, 0, 5vh, 0;
-            z-index: 100;
-        }
-            /*блок названия*/
-            .dailyBackground .top-background .title .title-text {
-                text-align: center;
-                font-size: 26px;
-                font-weight: 600;
-            }
-        /*текст названия*/
-        .dailyBackground .top-background .block-account {
-            position: fixed;
-            height: 8vh;
-            z-index: 100;
-        }
-            /*блок кнопок*/
-            .dailyBackground .top-background .block-account .account-info {
-                position: fixed;
-                z-index: 10;
-                padding: 10px 0 0 0;
-                height: 160px;
-                width: 100px;
-                right: 0px;
-                top: -160px;
-                background: rgba(14,219,175);
-                border-bottom-left-radius: 10px;
-                transition: 0.3s;
-            }
-                /*таблица кнопок*/
-                .dailyBackground .top-background .block-account .account-info.active {
-                    top: 0px;
-                }
-                .dailyBackground .top-background .block-account .account-info .info-item {
-                    height: 50px;
-                    width: 100%;
-                }
-                .dailyBackground .top-background .block-account .account-info .type1 {
-                    border-bottom: 1px solid rgba(0,0,0, 0.4);
-                }
-            .dailyBackground .top-background .block-account .button {
-                z-index: 5;
-                position: fixed;
-                top: 10px;
-                right: 25px;
-                background: rgba(14,219,175);
-                height: 50px;
-                width: 50px;
-                border-radius: 50px;
-            }
-                /*кнопка аккаунта*/
-                .dailyBackground .top-background .block-account .button:hover {
-                    background: rgb(128, 128, 128);
-                }
-                /*выделение кнопки*/
-                .dailyBackground .top-background .block-account .button .button-name {
-                    text-align: center;
-                }
-/*текст кнопки*/
-
-
-
-
 .add-table {
     position: fixed;
     left: -100vw;
@@ -347,7 +305,7 @@
 
 .form-group {
     width: 100%;
-    height: 80px;
+    height: 100px;
     margin: 0 0 20px 0;
     padding: 20px;
 }
@@ -370,7 +328,6 @@
         border-radius: 10px;
         color: #000;
     }
-
 .add-task-tables .form-group .form-input.input-validation-error {
     background: rgba(230, 73, 73, 0.4);
 }
@@ -397,34 +354,92 @@
 .delete-task-tables .form-group label{
     text-align: center;
 }
-        @media(max-width: 768px) {
-            .add-daily-form {
-                top: 15vh;
-                width: 90vw;
-            }
+
+@media(max-width: 768px) {
+    body{
+        width: 100vw;
+        position: fixed;
+    }
+    .add-daily-form {
+        top: 15vh;
+        width: 90vw;
+    }
 
         .add-daily-form.active {
             left: 5vw;
             width: 90vw;
         }
 
-            .add-everyday-form {
-                top: 15vh;
-                width: 90vw;
-            }
+    .add-everyday-form {
+        top: 15vh;
+        width: 90vw;
+    }
 
         .add-everyday-form.active {
             left: 5vw;
             width: 90vw;
         }
 
-            .add-noterms-form {
-                top: 15vh;
-                width: 90vw;
-            }
+    .add-noterms-form {
+        top: 15vh;
+        width: 90vw;
+    }
 
         .add-noterms-form.active {
             left: 5vw;
             width: 90vw;
+        }
+    .block-tables {
+        position: absolute;
+        width: 300vw;
+        padding: 0 !important;
+    }
+    .block-tables.daily{
+        left: 0vw;
+    }
+        .block-tables.everyday {
+            left: -100vw;
+        }
+        .block-tables.noterm {
+            left: -200vw;
+        }
+
+    .sign-out {
+        top: 5vw;
+        right: 5vw;
+    }
+    .sign-out button{
+        top: 5vw;
+        right: 5vw;
+    }
+    .mobile-menu {
+        display: grid;
+        grid-template-columns: 33% 34% 33%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 8vh;
+        background: rgba(122,52,235, 0.7);
+        border-top: 2px solid rgba(0, 0, 0, 0.3);
+    }
+        .mobile-menu div button {
+            width: 100%;
+            height: 8vh;
+            background: transparent;
+            border: none;
+            outline: none;
+        }
+        .mobile-menu div i {
+            font-size: 25px;
+            color: #ccc;
+        }
+        .mobile-menu button.active {
+            transition: 0.1s;
+            border-top: 3px solid #fff;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        .mobile-menu button.active i {
+            color: #fff;
         }
 }

@@ -1,3 +1,4 @@
+using DailyProg.Logic;
 using DailyProg.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -29,10 +30,10 @@ namespace DailyProg
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
                 {
-                    options.LoginPath = "/home/register";
+                    options.LoginPath = "/account/register";
                 });
             services.AddTransient<DbConnect>();
-            services.AddScoped<Tasks>();
+            services.AddScoped<TasksLogic>();
             services.AddScoped<AuthorizationActions>();
         }
 
