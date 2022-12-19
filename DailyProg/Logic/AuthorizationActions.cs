@@ -35,8 +35,8 @@ namespace DailyProg.Logic
             {
                 using (IDbConnection database = connect.Connect)
                 {
-                    RegistrationModel regModel = await database.QueryFirstOrDefaultAsync<RegistrationModel>("SELECT * FROM UserInfo WHERE UserEmail = @UserEmail AND UserPassword = @UserPassword", model);
-                    if (regModel == null || model.UserEmail != regModel.UserEmail)
+                    string regModel = await database.QueryFirstOrDefaultAsync<string>("SELECT UserEmail FROM UserInfo WHERE UserEmail = @UserEmail", model);
+                    if (regModel == null || model.UserEmail != regModel)
                     {
                         await database.ExecuteAsync("INSERT INTO UserInfo VALUES (NewID(), @UserEmail, @UserPassword)", model);
                         model = await database.QuerySingleAsync<RegistrationModel>("SELECT UserID, UserEmail FROM UserInfo WHERE UserEmail = @UserEmail AND UserPassword = @UserPassword", model);

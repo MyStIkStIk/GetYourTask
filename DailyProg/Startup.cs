@@ -32,6 +32,7 @@ namespace DailyProg
                 {
                     options.LoginPath = "/account/register";
                 });
+            services.AddSingleton<TaskScheduler>();
             services.AddTransient<DbConnect>();
             services.AddScoped<TasksLogic>();
             services.AddScoped<AuthorizationActions>();

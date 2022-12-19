@@ -150,7 +150,7 @@ del {
                         content: attr(time);
                         display: block;
                         color: #aaa;
-                        padding: 0 30px;
+                        padding: 0 10px;
                     }
                     .dailyBackground .block-tables .table .task p:hover {
                         background: rgba(0, 0, 0, 0.1);
@@ -390,9 +390,13 @@ del {
             width: 90vw;
         }
     .block-tables {
+        margin: 10vh 0 0 0 !important;
         position: absolute;
         width: 300vw;
         padding: 0 !important;
+    }
+    .block-tables .table{
+        height: 70vh !important;
     }
     .block-tables.daily{
         left: 0vw;
@@ -405,11 +409,11 @@ del {
         }
 
     .sign-out {
-        top: 5vw;
+        top: 3vw;
         right: 5vw;
     }
     .sign-out button{
-        top: 5vw;
+        top: 3vw;
         right: 5vw;
     }
     .mobile-menu {
