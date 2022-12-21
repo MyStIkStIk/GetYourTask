@@ -34,8 +34,7 @@ namespace DailyProg.Controllers
             var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
             await HttpContext.SignInAsync(claimsPrincipal);
         }
-        [HttpPost]
-        public async Task<IActionResult> SignOut(TasksLogic model)
+        public async Task<IActionResult> SignOut()
         {
             await HttpContext.SignOutAsync();
             return RedirectToAction("Index", "Home");

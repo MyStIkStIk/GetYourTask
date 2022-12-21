@@ -1,16 +1,13 @@
-﻿using Quartz;
+﻿using Microsoft.AspNetCore.Mvc;
+using Quartz;
 using Quartz.Impl;
 using System;
 
 namespace DailyProg.Jobs
 {
-    public class TasksSheduler
+    public class TaskScheduler
     {
-        public TasksSheduler()
-        {
-            Start();
-        }
-        public static async void Start()
+        public static async void Start(string connect)
         {
             IScheduler scheduler = await StdSchedulerFactory.GetDefaultScheduler();
             await scheduler.Start();
@@ -18,7 +15,9 @@ namespace DailyProg.Jobs
 
             ITrigger trigger = TriggerBuilder.Create()
                 .WithIdentity("updater", "group1")
-                .StartAt(DateTimeOffset.Parse("00:00:00"))
+                .UsingJobData("connect", connect)
+                .StartAt(DateTimeOffset.Parse("00:01:00"))
+                .EndAt(DateTimeOffset.Parse("00:02:00"))
                 .WithSimpleSchedule(x => x
                    .WithIntervalInHours(24)
                    .RepeatForever())

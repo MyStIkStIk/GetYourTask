@@ -1,5 +1,6 @@
 ﻿using DailyProg.Models;
 using Dapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using Quartz;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,14 +21,13 @@ namespace DailyProg.Jobs
         List<Guid> EUsers;
         List<Guid> NUsers;
         List<Done> Done;
-        DbConnect _connect;
-        public TasksUpdater([FromServices] DbConnect connect)
+        public TasksUpdater()
         {
-            _connect = connect;
         }
         public async Task Execute(IJobExecutionContext context)
         {
-            using(IDbConnection connect = _connect.Connect)
+            DbConnect _connect = new DbConnect((string)context.Trigger.JobDataMap.Get("connect"));
+            using (IDbConnection connect = _connect.Connect)
             {
                 DUsers = connect.Query<Guid>("SELECT UserID FROM DailyTask WHERE Done = 1").ToList();
                 EUsers = connect.Query<Guid>("SELECT UserID FROM EverydayTask WHERE Done = 1").ToList();

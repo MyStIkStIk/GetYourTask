@@ -11,5 +11,9 @@ namespace DailyProg
         {
             Connect = new SqlConnection(configuration.GetConnectionString("DailyConnect"));
         }
+        public DbConnect(string configuration)
+        {
+            Connect = new SqlConnection(configuration);
+        }
     }
 }

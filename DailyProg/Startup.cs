@@ -9,8 +9,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace DailyProg
 {
@@ -32,10 +35,10 @@ namespace DailyProg
                 {
                     options.LoginPath = "/account/register";
                 });
-            services.AddSingleton<TaskScheduler>();
             services.AddTransient<DbConnect>();
             services.AddScoped<TasksLogic>();
             services.AddScoped<AuthorizationActions>();
+            Jobs.TaskScheduler.Start(Configuration.GetConnectionString("DailyConnect"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -22,17 +22,6 @@ del {
     border: 2px solid rgba(0,0,0, 0.3);
     background: rgba(122,52,235, 0.7);
     border-radius: 25px;
-}
-.sign-out button{
-    position: fixed;
-    top: 35px;
-    right: 35px;
-    height: 50px;
-    width: 50px;
-    border: none;
-    outline: none;
-    background: transparent;
-    border-radius: 25px;
     color: #ccc;
 }
     .sign-out:hover {
@@ -42,6 +31,9 @@ del {
     .sign-out:active {
         background: rgba(122,52,235, 0.5);
         color: #fff;
+    }
+    .sign-out i {
+        margin: 13px;
     }
 .add-task-background {
     z-index: 100;
@@ -409,10 +401,6 @@ del {
         }
 
     .sign-out {
-        top: 3vw;
-        right: 5vw;
-    }
-    .sign-out button{
         top: 3vw;
         right: 5vw;
     }
